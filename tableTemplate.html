@@ -1,0 +1,11 @@
+<table>
+  <tr><th>Rank</th><th>Language</th><th>Subscribers</th><th>% Share</th></tr>
+{{ range .TopTable }}
+  <tr><td>{{ .Index }}</td><td><a href="{{ .Url }}">{{ .Name }}</a></td><td>{{ .SubsString }}</td><td>{{ .Percentage }}</td></tr>{{ end }}
+</table>
+
+<p>Outside the top 20: {{ range .Tail }}
+  <a href="{{ .Url }}">{{ .Name }}</a> ({{ .SubsString }}), {{ end }}
+<a href="{{ .Last.Url }}">{{ .Last.Name }}</a> ({{ .Last.SubsString }}).</p>
+
+<p>Pages scraped: {{ .DateString }}.</p>
