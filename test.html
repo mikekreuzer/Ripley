@@ -6,28 +6,20 @@
 <div id="id01"></div>
 
 <script>
-function createCORSRequest(method, url) {
-  var xhr = new XMLHttpRequest();
-  if ("withCredentials" in xhr) {
-    // XHR for Chrome/Firefox/Opera/Safari.
-    xhr.open(method, url, true);
-  } else if (typeof XDomainRequest != "undefined") {
-    // XDomainRequest for IE.
-    xhr = new XDomainRequest();
-    xhr.open(method, url);
-  } else {
-    // CORS not supported.
-    xhr = null;
-  }
-  return xhr;
+var xmlhttp = new XMLHttpRequest();
+var url = "test.json";
+xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        myFunction(xmlhttp.responseText);
+    }
 }
-
-function parseData(response) {
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+function myFunction(response) {
     var data = JSON.parse(response); // will add .data
     
     var i;
     var out = "<table>";
-
     for(i = 0; i < data.length; i++) {
         out += "<tr><td>" +
         arr[i].name +
@@ -40,33 +32,6 @@ function parseData(response) {
     out += "</table>";
     document.getElementById("id01").innerHTML = out;
 }
-
-function makeCorsRequest() {
-  var url = 'https://github.com/mikekreuzer/Ripley/blob/master/data/06-2016.json';
-
-  var xhr = createCORSRequest('GET', url);
-  if (!xhr) {
-    alert('CORS not supported');
-    return;
-  }
-
-  // Response handlers.
-  xhr.onload = function() {
-    var text = xhr.responseText;
-    var title = getTitle(text);
-    alert('Response from CORS request to ' + url + ': ' + title);
-    
-    parseData(text);
-  };
-
-  xhr.onerror = function() {
-    alert('Woops, there was an error making the request.');
-  };
-
-  xhr.send();
-}
-
-makeCorsRequest();
 </script>
 
 </body>
