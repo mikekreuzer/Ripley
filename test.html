@@ -22,11 +22,11 @@ function myFunction(response) {
     var out = "<table>";
     for(i = 0; i < data.length; i++) {
         out += "<tr><td>" +
-        arr[i].name +
+        data[i].name +
         "</td><td>" +
-        arr[i].subscribers +
+        data[i].subscribers +
         "</td><td>" +
-        arr[i].percentage +
+        data[i].percentage +
         "</td></tr>";
     }
     out += "</table>";
