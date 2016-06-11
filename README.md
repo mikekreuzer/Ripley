@@ -11,9 +11,14 @@ This repo holds the script used to scrape reddit.
 - unit tests
 - account for ties (currently done manually)
 - better handling of rate limiting & other scraping errors
-- a possible language rewrite, version 0.1.0 was a quick test of writing Go
 
 ## History
-- March 31, 2016 - 0.1.0 - Initial commit
+
+- June 11, 2016 - 0.2.0
+  - Replaced the Go HTML template used to display the data with JavaScript
+  - Replaced writing data to stdout with writing to a file
+  - Added the date the data was scraped to the JSON
+- March 31, 2016 - 0.1.0
+  - Initial commit, April till June
 
 [site]: http://mikekreuzer.github.io/Ripley/

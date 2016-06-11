@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"html/template"
 	"net/http"
 	"os"
+	"path"
 	"sort"
 	"strconv"
 	"strings"
@@ -21,7 +21,7 @@ func getCount(client *http.Client, language *Lang, wg *sync.WaitGroup) {
 
 	req, err := http.NewRequest("GET", language.Url, nil)
 	throw(err)
-	req.Header.Add("User-Agent", `Mac:com.mikekreuzer.ripley:0.1.0 (by /u/mikekreuzer)`)
+	req.Header.Add("User-Agent", `Mac:com.mikekreuzer.ripley:0.2.0 (by /u/mikekreuzer)`)
 
 	resp, err := client.Do(req)
 	throw(err)
@@ -43,6 +43,14 @@ func getCount(client *http.Client, language *Lang, wg *sync.WaitGroup) {
 	}
 }
 
+func writeBytes(fileName string, b []byte) {
+	f, err := os.Create(fileName)
+	throw(err)
+	defer f.Close()
+	_, err = f.Write(b)
+	throw(err)
+}
+
 func outputTotal(languages []*Lang, tableSize int) {
 	sort.Sort(sort.Reverse(BySubs(Languages)))
 
@@ -56,21 +64,19 @@ func outputTotal(languages []*Lang, tableSize int) {
 		perc := float64(language.Subscribers) / float64(total) * 100.0
 		language.Percentage = strconv.FormatFloat(perc, 'f', 1, 64)
 	}
-	plate, err := template.ParseFiles("tableTemplate.html")
-	throw(err)
 
-	// for the site
-	data := &Output{languages[0:tableSize],
-		languages[tableSize : len(languages)-1],
-		languages[len(languages)-1],
-		time.Now().Format("January 2, 2006")}
-	err = plate.Execute(os.Stdout, data)
-	throw(err)
-
-	// to archive
-	b, err := json.Marshal(languages)
+	// json
+	theDate := time.Now()
+	data := &Output{theDate.Format("January 2006"), theDate.Format(time.RFC3339), languages}
+	b, err := json.Marshal(data)
 	throw(err)
 	var out bytes.Buffer
 	json.Indent(&out, b, "", " \t")
-	out.WriteTo(os.Stdout)
+
+	// file name
+	fileNameParts := []string{"new-", theDate.Format("01-2006"), ".json"}
+	fileName := path.Join("data", strings.Join(fileNameParts, ""))
+
+	// write file
+	writeBytes(fileName, out.Bytes())
 }

@@ -1,10 +1,9 @@
 package main
 
 type Output struct {
-	TopTable   []*Lang
-	Tail       []*Lang
-	Last       *Lang
-	DateString string
+	Title       string  `json:"title"`
+	DateScraped string  `json:"dateScraped"`
+	Data        []*Lang `json:"data"`
 }
 
 type Lang struct {
@@ -24,11 +23,13 @@ func (a BySubs) Less(i, j int) bool { return a[i].Subscribers < a[j].Subscribers
 
 var Languages = []*Lang{
 	&Lang{0, "Ada", "https://www.reddit.com/r/ada/", 0, "?", "0"},
+	&Lang{0, "Agda", "https://www.reddit.com/r/agda/", 0, "?", "0"},
 	&Lang{0, "Assembly", "https://www.reddit.com/r/asm", 0, "?", "0"},
 	&Lang{0, "C", "https://www.reddit.com/r/C_Programming", 0, "?", "0"},
 	&Lang{0, "Clojure", "https://www.reddit.com/r/clojure", 0, "?", "0"},
 	&Lang{0, "COBOL", "https://www.reddit.com/r/cobol", 0, "?", "0"},
 	&Lang{0, "CoffeeScript", "https://www.reddit.com/r/coffeescript", 0, "?", "0"},
+	&Lang{0, "Crystal", "https://www.reddit.com/r/crystal", 0, "?", "0"},
 	&Lang{0, "C#", "https://www.reddit.com/r/csharp", 0, "?", "0"},
 	&Lang{0, "C++", "https://www.reddit.com/r/cpp", 0, "?", "0"},
 	&Lang{0, "D", "https://www.reddit.com/r/d_language", 0, "?", "0"},
@@ -42,9 +43,12 @@ var Languages = []*Lang{
 	&Lang{0, "Go", "https://www.reddit.com/r/golang", 0, "?", "0"},
 	&Lang{0, "Groovy", "https://www.reddit.com/r/groovy", 0, "?", "0"},
 	&Lang{0, "Haskell", "https://www.reddit.com/r/haskell", 0, "?", "0"},
+	&Lang{0, "Haxe", "https://www.reddit.com/r/haxe", 0, "?", "0"},
+	&Lang{0, "Idris", "https://www.reddit.com/r/idris", 0, "?", "0"},
 	&Lang{0, "Java", "https://www.reddit.com/r/java", 0, "?", "0"},
 	&Lang{0, "JavaScript", "https://www.reddit.com/r/javascript", 0, "?", "0"},
 	&Lang{0, "Julia", "https://www.reddit.com/r/julia", 0, "?", "0"},
+	&Lang{0, "Kotlin", "https://www.reddit.com/r/Kotlin", 0, "?", "0"},
 	&Lang{0, "Lisp", "https://www.reddit.com/r/lisp", 0, "?", "0"},
 	&Lang{0, "Lua", "https://www.reddit.com/r/lua", 0, "?", "0"},
 	&Lang{0, "Nim", "https://www.reddit.com/r/nim", 0, "?", "0"},
@@ -52,6 +56,7 @@ var Languages = []*Lang{
 	&Lang{0, "Pascal", "https://www.reddit.com/r/delphi", 0, "?", "0"},
 	&Lang{0, "Perl", "https://www.reddit.com/r/perl", 0, "?", "0"},
 	&Lang{0, "PHP", "https://www.reddit.com/r/php", 0, "?", "0"},
+	&Lang{0, "Pony", "https://www.reddit.com/r/ponylang", 0, "?", "0"},
 	&Lang{0, "Prolog", "https://www.reddit.com/r/prolog", 0, "?", "0"},
 	&Lang{0, "Python", "https://www.reddit.com/r/Python", 0, "?", "0"},
 	&Lang{0, "Ruby", "https://www.reddit.com/r/ruby", 0, "?", "0"},
