@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Test</h1>
+<div id="id01"></div>
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "https://github.com/mikekreuzer/Ripley/blob/master/data/06-2016.json";
+
+xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        myFunction(xmlhttp.responseText);
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(response) {
+    var data = JSON.parse(response); // will add .data
+    
+    var i;
+    var out = "<table>";
+
+    for(i = 0; i < data.length; i++) {
+        out += "<tr><td>" +
+        arr[i].name +
+        "</td><td>" +
+        arr[i].subscribers +
+        "</td><td>" +
+        arr[i].percentage +
+        "</td></tr>";
+    }
+    out += "</table>";
+    document.getElementById("id01").innerHTML = out;
+}
+</script>
+
+</body>
+</html>
