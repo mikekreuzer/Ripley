@@ -92,14 +92,14 @@ function myFunction(response) {
         '<td>' + data[i].subscribers + '</td>' +
         '<td>' + data[i].percentage + '</td></tr>';
     }
-    out += '</table><p>';
+    out += '</table><p>Outside of the top 20: ';
     
     for(i = 20; i < data.length; i++) {
       out += '<a href="' + data[i].url + '">' + data[i].name + '</a> (' + data[i].subscribers + '), '
     }
     out = out.replace(/,\s$/, '') + '.</p>';
     
-    out += '<p>Pages scraped:' + json.dateScraped + '</p>';
+    out += '<p>Pages scraped: ' + json.dateScraped + '</p>';
     document.getElementById("id01").innerHTML += out;
 }
 </script>
