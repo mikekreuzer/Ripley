@@ -9,39 +9,45 @@
 function createCORSRequest(method, url) {
   var xhr = new XMLHttpRequest();
   if ("withCredentials" in xhr) {
-    // Check if the XMLHttpRequest object has a "withCredentials" property.
-    // "withCredentials" only exists on XMLHTTPRequest2 objects.
+    // XHR for Chrome/Firefox/Opera/Safari.
     xhr.open(method, url, true);
   } else if (typeof XDomainRequest != "undefined") {
-    // Otherwise, check if XDomainRequest.
-    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+    // XDomainRequest for IE.
     xhr = new XDomainRequest();
     xhr.open(method, url);
-
   } else {
-    // Otherwise, CORS is not supported by the browser.
+    // CORS not supported.
     xhr = null;
   }
   return xhr;
 }
 
-var xmlhttp = createCORSRequest('GET', url);
-if (!xmlhttp) {
-  throw new Error('CORS not supported');
+function makeCorsRequest() {
+  var url = 'https://github.com/mikekreuzer/Ripley/blob/master/data/06-2016.json';
+
+  var xhr = createCORSRequest('GET', url);
+  if (!xhr) {
+    alert('CORS not supported');
+    return;
+  }
+
+  // Response handlers.
+  xhr.onload = function() {
+    var text = xhr.responseText;
+    var title = getTitle(text);
+    alert('Response from CORS request to ' + url + ': ' + title);
+    
+    parseData(text);
+  };
+
+  xhr.onerror = function() {
+    alert('Woops, there was an error making the request.');
+  };
+
+  xhr.send();
 }
-// var xmlhttp = new XMLHttpRequest();
 
-var url = "https://github.com/mikekreuzer/Ripley/blob/master/data/06-2016.json";
-
-xmlhttp.onreadystatechange=function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        myFunction(xmlhttp.responseText);
-    }
-}
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
-
-function myFunction(response) {
+function parseData(response) {
     var data = JSON.parse(response); // will add .data
     
     var i;
