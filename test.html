@@ -97,7 +97,7 @@ function myFunction(response) {
     for(i = 20; i < data.length; i++) {
       out += '<a href="' + data[i].url + '">' + data[i].name + '</a> (' + data[i].subscribers + '), '
     }
-    out = out.replace(/,$/, '') + '.</p>';
+    out = out.replace(/,\s$/, '') + '.</p>';
     
     out += '<p>Pages scraped:' + json.dateScraped + '</p>';
     document.getElementById("id01").innerHTML += out;
