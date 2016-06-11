@@ -22,6 +22,25 @@ function createCORSRequest(method, url) {
   return xhr;
 }
 
+function parseData(response) {
+    var data = JSON.parse(response); // will add .data
+    
+    var i;
+    var out = "<table>";
+
+    for(i = 0; i < data.length; i++) {
+        out += "<tr><td>" +
+        arr[i].name +
+        "</td><td>" +
+        arr[i].subscribers +
+        "</td><td>" +
+        arr[i].percentage +
+        "</td></tr>";
+    }
+    out += "</table>";
+    document.getElementById("id01").innerHTML = out;
+}
+
 function makeCorsRequest() {
   var url = 'https://github.com/mikekreuzer/Ripley/blob/master/data/06-2016.json';
 
@@ -47,24 +66,7 @@ function makeCorsRequest() {
   xhr.send();
 }
 
-function parseData(response) {
-    var data = JSON.parse(response); // will add .data
-    
-    var i;
-    var out = "<table>";
-
-    for(i = 0; i < data.length; i++) {
-        out += "<tr><td>" +
-        arr[i].name +
-        "</td><td>" +
-        arr[i].subscribers +
-        "</td><td>" +
-        arr[i].percentage +
-        "</td></tr>";
-    }
-    out += "</table>";
-    document.getElementById("id01").innerHTML = out;
-}
+makeCorsRequest();
 </script>
 
 </body>
