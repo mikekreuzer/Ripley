@@ -1,6 +1,6 @@
 {
  	"title": "July 2016",
- 	"dateScraped": "2016-07-01T21:27:34+10:00",
+ 	"dateScraped": "2016-07-01T21:35:32+10:00",
  	"data": [
  	 	{
  	 	 	"index": 1,
@@ -30,8 +30,8 @@
  	 	 	"index": 4,
  	 	 	"name": "PHP",
  	 	 	"url": "https://www.reddit.com/r/php",
- 	 	 	"subscribers": 42011,
- 	 	 	"subsstring": "42,011",
+ 	 	 	"subscribers": 42012,
+ 	 	 	"subsstring": "42,012",
  	 	 	"percentage": "6.9"
  	 	},
  	 	{
@@ -324,6 +324,14 @@
  	 	},
  	 	{
  	 	 	"index": 41,
+ 	 	 	"name": "Crystal",
+ 	 	 	"url": "https://www.reddit.com/r/crystal_programming",
+ 	 	 	"subscribers": 641,
+ 	 	 	"subsstring": "641",
+ 	 	 	"percentage": "0.1"
+ 	 	},
+ 	 	{
+ 	 	 	"index": 42,
  	 	 	"name": "TCL",
  	 	 	"url": "https://www.reddit.com/r/tcl",
  	 	 	"subscribers": 591,
@@ -331,7 +339,7 @@
  	 	 	"percentage": "0.1"
  	 	},
  	 	{
- 	 	 	"index": 42,
+ 	 	 	"index": 43,
  	 	 	"name": "Scratch",
  	 	 	"url": "https://www.reddit.com/r/scratch/",
  	 	 	"subscribers": 581,
@@ -339,7 +347,7 @@
  	 	 	"percentage": "0.1"
  	 	},
  	 	{
- 	 	 	"index": 43,
+ 	 	 	"index": 44,
  	 	 	"name": "COBOL",
  	 	 	"url": "https://www.reddit.com/r/cobol",
  	 	 	"subscribers": 478,
@@ -347,7 +355,7 @@
  	 	 	"percentage": "0.1"
  	 	},
  	 	{
- 	 	 	"index": 44,
+ 	 	 	"index": 45,
  	 	 	"name": "Agda",
  	 	 	"url": "https://www.reddit.com/r/agda/",
  	 	 	"subscribers": 406,
@@ -355,19 +363,11 @@
  	 	 	"percentage": "0.1"
  	 	},
  	 	{
- 	 	 	"index": 45,
+ 	 	 	"index": 46,
  	 	 	"name": "Pony",
  	 	 	"url": "https://www.reddit.com/r/ponylang",
  	 	 	"subscribers": 154,
  	 	 	"subsstring": "154",
- 	 	 	"percentage": "0.0"
- 	 	},
- 	 	{
- 	 	 	"index": 46,
- 	 	 	"name": "Crystal",
- 	 	 	"url": "https://www.reddit.com/r/crystal",
- 	 	 	"subscribers": 91,
- 	 	 	"subsstring": "91",
  	 	 	"percentage": "0.0"
  	 	}
  	]

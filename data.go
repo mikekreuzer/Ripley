@@ -29,7 +29,7 @@ var Languages = []*Lang{
 	&Lang{0, "Clojure", "https://www.reddit.com/r/clojure", 0, "?", "0"},
 	&Lang{0, "COBOL", "https://www.reddit.com/r/cobol", 0, "?", "0"},
 	&Lang{0, "CoffeeScript", "https://www.reddit.com/r/coffeescript", 0, "?", "0"},
-	&Lang{0, "Crystal", "https://www.reddit.com/r/crystal", 0, "?", "0"},
+	&Lang{0, "Crystal", "https://www.reddit.com/r/crystal_programming", 0, "?", "0"},
 	&Lang{0, "C#", "https://www.reddit.com/r/csharp", 0, "?", "0"},
 	&Lang{0, "C++", "https://www.reddit.com/r/cpp", 0, "?", "0"},
 	&Lang{0, "D", "https://www.reddit.com/r/d_language", 0, "?", "0"},
