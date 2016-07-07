@@ -15,13 +15,13 @@ function processCurrentData(response) {
     // get date & find the file from a year before, both hard wired until April 2017
     xmlhttp2 = new XMLHttpRequest(),
     url2 = 'data/04-2016.json'; // hard wired for now
-  xmlhttp.onreadystatechange = function () {
+  xmlhttp2.onreadystatechange = function () {
     if (xmlhttp2.readyState === 4 && xmlhttp2.status === 200) {
       processOldData(xmlhttp2.responseText, json);
     }
   };
-  xmlhttp.open('GET', url, true);
-  xmlhttp.send();
+  xmlhttp2.open('GET', url, true);
+  xmlhttp2.send();
 }
 
 function processOldData(response, json) {
