@@ -21,7 +21,7 @@ function processCurrentData(response) {
       processOldData(xmlhttp2.responseText, json);
     }
   };
-  xmlhttp2.open('GET', url, true);
+  xmlhttp2.open('GET', url2, true);
   xmlhttp2.send();
 }
 
@@ -64,6 +64,6 @@ function checkHistory(name, index, historicalData) {
   } else if(index > oldIndex) {
     return '<img src="images/down.png" alt="down" width="48" height="32" style="margin-top:-9px;margin-bottom:-15px;padding:0"> from ' + (oldIndex + 1);
   } else {
-    return 'old' + historicalData.dateScraped; // '&nbsp;';
+    return '&nbsp;';
   }
 }
