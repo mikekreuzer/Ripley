@@ -55,6 +55,7 @@ function checkHistory(name, index, historicalData) {
   for (var i = 0; i < historicalData.length; i = i + 1) {
     if(name === historicalData[i].name) {
       oldIndex = i;
+      break;
     }
   }
   if(index < oldIndex) {
@@ -62,6 +63,6 @@ function checkHistory(name, index, historicalData) {
   } else if(index > oldIndex) {
     return '<img src="images/down.png" alt="down" width="48" height="32" style="margin-top:-9px;margin-bottom:-15px;padding:0"> from ' + (oldIndex + 1);
   } else {
-    return '&nbsp;';
+    return oldIndex; // '&nbsp;';
   }
 }
