@@ -1,3 +1,4 @@
+/* jshint strict:global, browser:true */
 'use strict';
 
 var xmlhttp = new XMLHttpRequest(),
@@ -63,6 +64,6 @@ function checkHistory(name, index, historicalData) {
   } else if(index > oldIndex) {
     return '<img src="images/down.png" alt="down" width="48" height="32" style="margin-top:-9px;margin-bottom:-15px;padding:0"> from ' + (oldIndex + 1);
   } else {
-    return oldIndex; // '&nbsp;';
+    return index + ' <- ' + oldIndex; // '&nbsp;';
   }
 }

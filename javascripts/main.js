@@ -1,3 +1,4 @@
+/* jshint strict:global, browser:true */
 'use strict';
 var xmlhttp = new XMLHttpRequest(),
   url = 'data/data.json';
