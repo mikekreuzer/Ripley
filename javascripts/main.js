@@ -1,5 +1,5 @@
 'use strict';
-var xmlhttp = new XMLHttpRequest()
+var xmlhttp = new XMLHttpRequest(),
   url = 'data/data.json';
 xmlhttp.onreadystatechange = function () {
   if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
