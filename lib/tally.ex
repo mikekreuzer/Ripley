@@ -1,4 +1,8 @@
 defmodule Ripley.Tally do
+  @moduledoc """
+  This module is used to tally the results from the `Ripley.Worker` modules
+  """
+
   use GenServer
 
   # api
@@ -25,6 +29,11 @@ defmodule Ripley.Tally do
     {:noreply, %{num: num_expected, data: new_list}}
   end
 
+  # used in testing only
+  def handle_call(:status, _from, %{num: num_expected, data: data}) do
+    {:reply, %{num: num_expected, data: data}, %{num: num_expected, data: data}}
+  end
+
   # working
   defp finish_up(data_list) do
     time = Timex.now("Australia/Canberra")
@@ -34,14 +43,16 @@ defmodule Ripley.Tally do
     sorted_list = data_list
     |> Enum.sort_by(&(&1.count), &>=/2)
 
-    data = %{"title": title_string, "dateScraped": time_string, "data": sorted_list}
+    data = %{"title": title_string,
+             "dateScraped": time_string,
+             "data": sorted_list}
     write_file data
+    GenServer.stop Ripley.App
   end
 
   defp write_file(data) do
-    IO.inspect data
-    json = Poison.encode!(data)
-    |> String.replace(~r/\{\"url/, "\n{\"url") # mildly prettier, new line per value
+    # mildly prettier json, with a new line per value
+    json = String.replace(Poison.encode!(data), ~r/\{\"url/, "\n{\"url")
     File.write! Path.join("data", "interim.json"), json, [:write]
   end
 
