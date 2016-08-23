@@ -2,6 +2,8 @@
 
 ## reddit programming languages index
 
+This branch has been merged with [master](https://github.com/mikekreuzer/Ripley/tree/master)
+
 Ripley ranks reddit’s programming language subreddits by number of subscribers -- to see which [languages programmers are talking about this month][site].
 
 This repo holds the script used to scrape reddit.
