@@ -8,14 +8,16 @@ This repo holds the script used to scrape reddit.
 
 ## To do:
 
-- unit tests
+- more unit tests
 - account for ties (currently done manually)
-- better handling of rate limiting & other scraping errors
 
 ## History
 
+- August 23, 2016 - 0.4.0
+  - added a linter (Credo), started writing docs & tests, some refactoring
+  - merged Elixir to master
 - August 21, 2016 - 0.3.0
-  - rewritten in Elixir
+  - rewritten in Elixir, with every page a separate supervised process
 - June 11, 2016 - 0.2.0
   - replaced the Go HTML template used to display the data with JavaScript
   - replaced writing data to stdout with writing to a file

@@ -16,7 +16,9 @@ defmodule Ripley.Mixfile do
   end
 
   defp deps do
-    [{:floki, "~> 0.9.0"},
+    [{:credo, "~> 0.4", only: [:dev, :test]},
+     {:ex_doc, "~> 0.12", only: :dev},
+     {:floki, "~> 0.9.0"},
      {:httpoison, "~> 0.9.0"},
      {:poison, "~> 2.0"},
      {:timex, "~> 3.0"}]

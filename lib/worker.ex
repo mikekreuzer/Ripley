@@ -1,5 +1,11 @@
 defmodule Ripley.Worker do
+  @moduledoc """
+  Module used as a template for the worker for each `Ripley.Language`, started
+  by `Ripley.Supervisor`
+  """
+
   use GenServer
+  alias Ripley.Tally
 
   #api
   def start_link(language) do
@@ -12,18 +18,19 @@ defmodule Ripley.Worker do
 
   # genserver implementation
   def handle_cast({:scrape, timeout}, language) do
+    user_agent_string = "Mac:com.mikekreuzer.ripley:0.4.0 (by /u/mikekreuzer)"
     case HTTPoison.get(language.url,
-                       [{"User-Agent", "Mac:com.mikekreuzer.ripley:0.3.0 (by /u/mikekreuzer)"}],
+                       [{"User-Agent", user_agent_string}],
                        [{:timeout, timeout}, {:recv_timeout, timeout}]) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         text = text_from body
         count = int_from text
-        Ripley.Tally.append(%{language | count: count, countStr: text})
+        Tally.append(%{language | count: count, countStr: text})
 
       {:ok, %HTTPoison.Response{status_code: status}} when status != 200 ->
         raise "Error code: #{status}"
 
-      {:ok, %HTTPoison.Error{reason: reason}} ->
+      {:error, %HTTPoison.Error{reason: reason}} ->
         raise "Error: #{reason}"
     end
 
@@ -31,7 +38,11 @@ defmodule Ripley.Worker do
   end
 
   def terminate(reason, language) when reason != :normal do
-    Ripley.Tally.append(language)
+    Tally.append(language)
+    {reason, language}
+  end
+
+  def terminate(reason, language) when reason == :normal do
     {reason, language}
   end
 
