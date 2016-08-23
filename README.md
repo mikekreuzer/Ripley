@@ -14,11 +14,15 @@ This repo holds the script used to scrape reddit.
 
 ## History
 
+- August 21, 2016 - 0.3.0
+  - rewritten in Elixir
 - June 11, 2016 - 0.2.0
-  - Replaced the Go HTML template used to display the data with JavaScript
-  - Replaced writing data to stdout with writing to a file
-  - Added the date the data was scraped to the JSON
+  - replaced the Go HTML template used to display the data with JavaScript
+  - replaced writing data to stdout with writing to a file
+  - added the date the data was scraped to the JSON
+  - used for data for July-August 2016
 - March 31, 2016 - 0.1.0
-  - Initial commit, April till June
+  - initial commit
+  - used for data from April-June 2016
 
 [site]: http://mikekreuzer.github.io/Ripley/
