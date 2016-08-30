@@ -18,7 +18,7 @@ defmodule Ripley.Worker do
 
   # genserver implementation
   def handle_cast({:scrape, timeout}, language) do
-    user_agent_string = "Mac:com.mikekreuzer.ripley:0.4.0 (by /u/mikekreuzer)"
+    user_agent_string = "Mac:com.mikekreuzer.ripley:0.5.0 (by /u/mikekreuzer)"
     case HTTPoison.get(language.url,
                        [{"User-Agent", user_agent_string}],
                        [{:timeout, timeout}, {:recv_timeout, timeout}]) do

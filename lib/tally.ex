@@ -20,7 +20,7 @@ defmodule Ripley.Tally do
   end
 
   def handle_cast({:append, head}, %{num: num_expected, data: tail}) do
-    new_list = [head|tail]
+    new_list = [head | tail]
 
     if length(new_list) >= num_expected do
       finish_up new_list
@@ -53,7 +53,7 @@ defmodule Ripley.Tally do
   defp write_file(data) do
     # mildly prettier json, with a new line per value
     json = String.replace(Poison.encode!(data), ~r/\{\"url/, "\n{\"url")
-    File.write! Path.join("data", "interim.json"), json, [:write]
+    File.write! Path.join("data", "#{Mix.env}.json"), json, [:write]
   end
 
 end

@@ -10,9 +10,12 @@ This repo holds the script used to scrape reddit.
 
 - more unit tests
 - account for ties (currently done manually)
+- clean up the results site: navigate month to month, the css
 
 ## History
-
+- August 30, 2016 - 0.5.0
+  - added languages: OCaml, Smalltalk, Vala
+  - added some more tests
 - August 23, 2016 - 0.4.0
   - added a linter (Credo), started writing docs & tests, some refactoring
   - merged Elixir to master
@@ -22,6 +25,7 @@ This repo holds the script used to scrape reddit.
   - replaced the Go HTML template used to display the data with JavaScript
   - replaced writing data to stdout with writing to a file
   - added the date the data was scraped to the JSON
+  - added languages: Agda, Crystal, Haxe, Idris, Kotlin, & Pony
   - used for data for July-August 2016
 - March 31, 2016 - 0.1.0
   - initial commit

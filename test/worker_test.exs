@@ -1,14 +1,28 @@
 defmodule WorkerTest do
   use ExUnit.Case, async: false
+  alias Ripley.{Language, Worker}
 
-  test "something" do
-    assert 1 == 2 - 1
+  describe "Ripley.Worker.start_link" do
+    test "starts" do
+      {:ok, pid} = Worker.start_link %Language{}
+      assert Process.alive? pid
+    end
   end
 
-  # start_link
+  '''
+  describe "Ripley.Worker.scrape and Ripley.Worker.handle_cast" do
+    test "error" do
+      {:ok, pid} = Worker.start_link %Language{url: "http://mikekreuzer.com/no"}
+      assert_raise RuntimeError, fn ->
+        Worker.scrape(pid, 0)
+        GenServer.stop pid
+      end
+    end
+  end
 
-  # scrape & handle scrape
+  describe "Ripley.Worker.terminate" do
 
-  # two terminates
+  end
+  '''
 
 end

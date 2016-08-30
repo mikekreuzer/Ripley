@@ -7,7 +7,8 @@ defmodule Ripley.Supervisor do
 
   # api
   def start_link(list_of_languages) do
-  import Supervisor.Spec, warn: false
+    import Supervisor.Spec, warn: false
+
     children = [worker(Worker, [], restart: :temporary)]
 
     {:ok, sup_pid} = Supervisor.start_link(children,
