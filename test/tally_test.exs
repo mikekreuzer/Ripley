@@ -24,8 +24,8 @@ defmodule TallyTest do
       Helper.stop_app
       _pid = Helper.start_genserver Tally, 2
       Tally.append(%Language{name: "one"})
-      assert %{data: [%Language{count: 0, countStr: "", name: "one", url: ""}],
-               num: 2} == :sys.get_state(Tally) # GenServer.call(Tally, :status)
+      assert %{data: [%Language{subscribers: 0, subsstring: "", name: "one", url: ""}],
+               num: 2} == :sys.get_state(Tally)
     end
   end
 

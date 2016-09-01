@@ -4,14 +4,24 @@ defmodule LanguageTest do
 
   describe "Ripley.Language struct" do
     test "defaults" do
-      assert %Language{} == %Language{count: 0, countStr: "", name: "-", url: ""}
+      assert %Language{} == %Language{index: 0,
+                                      name: "-",
+                                      url: "",
+                                      subscribers: 0,
+                                      subsstring: "",
+                                      percentage: 0}
 
     end
 
     test "Poison.Encoder" do
-      data = %Language{count: 1, countStr: "1", name: "name", url: "url"}
+      data = %Language{index: 1,
+                       name: "name",
+                       url: "url",
+                       subscribers: 2,
+                       subsstring: "subsstring",
+                       percentage: 3}
       encoded = Poison.encode!(data)
-      assert encoded == "{\"url\":\"url\",\"name\":\"name\",\"countStr\":\"1\",\"count\":1}"
+      assert encoded == "{\"url\":\"url\",\"subsstring\":\"subsstring\",\"subscribers\":2,\"percentage\":3,\"name\":\"name\",\"index\":1}"
     end
   end
 end

@@ -41,14 +41,15 @@ defmodule Ripley.Tally do
     time_string = Timex.format!(time, "%FT%T%:z", :strftime)
     title_string = Timex.format!(time, "%B %Y", :strftime)
 
-    total_subs = Enum.map(data_list, fn(x) -> x.subscribers end)
-    |> Enum.reduce(fn(x, acc) -> x + acc end)
+    total_subs = data_list
+                |> Enum.map(fn(x) -> x.subscribers end)
+                |> Enum.reduce(fn(x, acc) -> x + acc end)
 
     sorted_list = data_list
-    |> Enum.sort_by(&(&1.subscribers), &>=/2)
-    |> Enum.with_index
-    |> Enum.map(&insert_index(&1))
-    |> Enum.map(&insert_percentage(&1, total_subs))
+                  |> Enum.sort_by(&(&1.subscribers), &>=/2)
+                  |> Enum.with_index
+                  |> Enum.map(&insert_index(&1))
+                  |> Enum.map(&insert_percentage(&1, total_subs))
 
     data = %{"title": title_string,
              "dateScraped": time_string,
@@ -63,8 +64,8 @@ defmodule Ripley.Tally do
   end
 
   defp insert_percentage(language, total_subs) do
-    percentage = Float.round(language.subscribers / total_subs * 100, 1)
-    |> Float.to_string
+    percentage = Float.to_string(Float.round(
+                                 language.subscribers / total_subs * 100, 1))
     %Language{language | percentage: percentage}
   end
 
