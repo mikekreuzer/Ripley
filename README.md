@@ -13,6 +13,9 @@ This repo holds the script used to scrape reddit.
 - clean up the results site: navigate month to month, the css
 
 ## History
+- September 1, 2016 - 0.6.0
+  - replaced my homegrown testing version with :sys.get_state/1
+  - used for data for September 2016 
 - August 30, 2016 - 0.5.0
   - added languages: OCaml, Smalltalk, Vala
   - added some more tests

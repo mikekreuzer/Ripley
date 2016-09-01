@@ -29,10 +29,10 @@ defmodule Ripley.Tally do
     {:noreply, %{num: num_expected, data: new_list}}
   end
 
-  # used in testing only
-  def handle_call(:status, _from, %{num: num_expected, data: data}) do
-    {:reply, %{num: num_expected, data: data}, %{num: num_expected, data: data}}
-  end
+  # used in testing only -- replaced by :sys.get_state/1
+  # def handle_call(:status, _from, %{num: num_expected, data: data}) do
+  # {:reply, %{num: num_expected, data: data}, %{num: num_expected, data: data}}
+  # end
 
   # working
   defp finish_up(data_list) do
