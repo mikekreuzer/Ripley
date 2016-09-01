@@ -25,7 +25,7 @@ defmodule Ripley.Worker do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         text = text_from body
         count = int_from text
-        Tally.append(%{language | count: count, countStr: text})
+        Tally.append(%{language | subscribers: count, subsstring: text})
 
       {:ok, %HTTPoison.Response{status_code: status}} when status != 200 ->
         raise "Error code: #{status}"

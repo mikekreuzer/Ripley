@@ -4,5 +4,10 @@ defmodule Ripley.Language do
   """
 
   @derive [Poison.Encoder]
-  defstruct name: "-", url: "", countStr: "", count: 0
+  defstruct index: 0,
+            name: "-",
+            url: "",
+            subscribers: 0,
+            subsstring: "",
+            percentage: 0
 end

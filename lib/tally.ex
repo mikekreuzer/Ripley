@@ -4,6 +4,7 @@ defmodule Ripley.Tally do
   """
 
   use GenServer
+  alias Ripley.Language
 
   # api
   def append(language) do
@@ -40,14 +41,31 @@ defmodule Ripley.Tally do
     time_string = Timex.format!(time, "%FT%T%:z", :strftime)
     title_string = Timex.format!(time, "%B %Y", :strftime)
 
+    total_subs = Enum.map(data_list, fn(x) -> x.subscribers end)
+    |> Enum.reduce(fn(x, acc) -> x + acc end)
+
     sorted_list = data_list
-    |> Enum.sort_by(&(&1.count), &>=/2)
+    |> Enum.sort_by(&(&1.subscribers), &>=/2)
+    |> Enum.with_index
+    |> Enum.map(&insert_index(&1))
+    |> Enum.map(&insert_percentage(&1, total_subs))
 
     data = %{"title": title_string,
              "dateScraped": time_string,
              "data": sorted_list}
     write_file data
     GenServer.stop Ripley.App
+  end
+
+  defp insert_index(tup) do
+    {language, i} = tup
+    %Language{language | index: i + 1}
+  end
+
+  defp insert_percentage(language, total_subs) do
+    percentage = Float.round(language.subscribers / total_subs * 100, 1)
+    |> Float.to_string
+    %Language{language | percentage: percentage}
   end
 
   defp write_file(data) do

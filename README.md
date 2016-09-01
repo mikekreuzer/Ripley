@@ -14,8 +14,9 @@ This repo holds the script used to scrape reddit.
 
 ## History
 - September 1, 2016 - 0.6.0
+  - reverted to the JSON names I'd used earlier, including index & percentage (absent minded me)
   - replaced my homegrown testing version with :sys.get_state/1
-  - ...ongoing (need to update the json format & add percentages) 
+  - used for data for September 2016
 - August 30, 2016 - 0.5.0
   - added languages: OCaml, Smalltalk, Vala
   - added some more tests
