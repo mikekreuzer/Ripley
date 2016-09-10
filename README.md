@@ -13,6 +13,10 @@ This repo holds the script used to scrape reddit.
 - clean up the results site: navigate month to month, the css
 
 ## History
+- September 11, 2016 - 0.6.1
+  - updated floki from 0.9.0 to 0.10.1
+  - added excoveralls
+  - 100% test coverage, now to get some depth to the tests
 - September 1, 2016 - 0.6.0
   - reverted to the JSON names I'd used earlier, including index & percentage (absent minded me)
   - replaced my homegrown testing version with :sys.get_state/1

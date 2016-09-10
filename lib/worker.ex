@@ -7,6 +7,8 @@ defmodule Ripley.Worker do
   use GenServer
   alias Ripley.Tally
 
+  @http_api Application.get_env(:ripley, :http_api)
+
   #api
   def start_link(language) do
     GenServer.start_link(__MODULE__, language)
@@ -18,8 +20,8 @@ defmodule Ripley.Worker do
 
   # genserver implementation
   def handle_cast({:scrape, timeout}, language) do
-    user_agent_string = "Mac:com.mikekreuzer.ripley:0.6.0 (by /u/mikekreuzer)"
-    case HTTPoison.get(language.url,
+    user_agent_string = "Mac:com.mikekreuzer.ripley:0.6.1 (by /u/mikekreuzer)"
+    case @http_api.get(language.url,
                        [{"User-Agent", user_agent_string}],
                        [{:timeout, timeout}, {:recv_timeout, timeout}]) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->

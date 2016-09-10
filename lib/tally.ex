@@ -30,11 +30,6 @@ defmodule Ripley.Tally do
     {:noreply, %{num: num_expected, data: new_list}}
   end
 
-  # used in testing only -- replaced by :sys.get_state/1
-  # def handle_call(:status, _from, %{num: num_expected, data: data}) do
-  # {:reply, %{num: num_expected, data: data}, %{num: num_expected, data: data}}
-  # end
-
   # working
   defp finish_up(data_list) do
     time = Timex.now("Australia/Canberra")
@@ -55,7 +50,12 @@ defmodule Ripley.Tally do
              "dateScraped": time_string,
              "data": sorted_list}
     write_file data
-    GenServer.stop Ripley.App
+  
+    # GenServer.stop Ripley.App
+    app_pid = Process.whereis Ripley.App
+    if app_pid != nil && Process.alive? app_pid do
+      GenServer.stop app_pid
+    end
   end
 
   defp insert_index(tup) do
