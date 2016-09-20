@@ -8,11 +8,11 @@ defmodule Ripley.Tally do
 
   # api
   def append(language) do
-    GenServer.cast(Ripley.Tally, {:append, language})
+    GenServer.cast(__MODULE__, {:append, language})
   end
 
   def start_link(num_expected) do
-    GenServer.start_link(__MODULE__, num_expected, name: Ripley.Tally)
+    GenServer.start_link(__MODULE__, num_expected, name: __MODULE__)
   end
 
   # genserver implementation
@@ -50,7 +50,7 @@ defmodule Ripley.Tally do
              "dateScraped": time_string,
              "data": sorted_list}
     write_file data
-  
+
     # GenServer.stop Ripley.App
     app_pid = Process.whereis Ripley.App
     if app_pid != nil && Process.alive? app_pid do

@@ -13,6 +13,8 @@ This repo holds the script used to scrape reddit.
 - clean up the results site: navigate month to month, the css
 
 ## History
+- September 20, 2016 - 0.6.2
+  - minor refactoring
 - September 11, 2016 - 0.6.1
   - updated floki from 0.9.0 to 0.10.1
   - added excoveralls

@@ -1,8 +1,7 @@
 use Mix.Config
 
-config :ripley, :http_api, HTTPoison
-
 config :ripley,
+  http_api: HTTPoison,
   subreddits: [
     %{name: "Ada", url: "https://www.reddit.com/r/ada"},
     %{name: "Agda", url: "https://www.reddit.com/r/agda"},

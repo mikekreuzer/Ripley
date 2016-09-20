@@ -13,7 +13,7 @@ defmodule Ripley.Supervisor do
 
     {:ok, sup_pid} = Supervisor.start_link(children,
                                            strategy: :simple_one_for_one,
-                                           name: Ripley.Supervisor)
+                                           name: __MODULE__)
 
     Enum.each(list_of_languages, &start_up(sup_pid, to_struct(&1)))
 
