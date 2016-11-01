@@ -2,4 +2,7 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
-import_config "#{Mix.env}.exs"
+case Mix.env do
+  "test" -> import_config "test.exs"
+  _ -> import_config "prod.exs"
+end
