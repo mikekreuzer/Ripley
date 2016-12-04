@@ -3,6 +3,6 @@
 use Mix.Config
 
 case Mix.env do
-  "test" -> import_config "test.exs"
+  :test -> import_config "test.exs"
   _ -> import_config "prod.exs"
 end

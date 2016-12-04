@@ -3,7 +3,7 @@ defmodule Ripley.Mixfile do
 
   def project do
     [app: :ripley,
-     version: "0.1.0",
+     version: "0.7.0",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -11,6 +11,7 @@ defmodule Ripley.Mixfile do
      test_coverage: [tool: ExCoveralls],
      preferred_cli_env: ["coveralls": :test,
                          "coveralls.html": :test],
+     aliases: [test: "coveralls.html --no-start"]
    ]
   end
 

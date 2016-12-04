@@ -51,10 +51,9 @@ defmodule Ripley.Tally do
              "data": sorted_list}
     write_file data
 
-    # GenServer.stop Ripley.App
     app_pid = Process.whereis Ripley.App
     if app_pid != nil && Process.alive? app_pid do
-      GenServer.stop app_pid
+      Application.stop app_pid
     end
   end
 

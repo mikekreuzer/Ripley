@@ -1,16 +1,13 @@
 defmodule Ripley.HTTPMock do
   def get(url, _user_agent, _timeouts) do
     case url do
-      "https://www.reddit.com/r/elixir" ->
+      "https://www.reddit.com/r/elixir/" ->
         {:ok, %HTTPoison.Response{status_code: 200, body: to_string body_text}}
 
-      "https://www.reddit.com/r/ponylang" ->
-        {:ok, %HTTPoison.Response{status_code: 200, body: to_string body_text}}
+      "https://www.reddit.com/r/not_there/" ->
+        {:ok, %HTTPoison.Response{status_code: 302}}
 
-      "https://www.reddit.com/r/not_there" ->
-        {:ok, %HTTPoison.Response{status_code: 404}}
-
-      "https://www.reddit.com/r/error" ->
+      "https://www.reddit.com/r/error/" ->
         {:error, %HTTPoison.Error{reason: "Weird error"}}
 
       _ ->
@@ -19,7 +16,7 @@ defmodule Ripley.HTTPMock do
   end
 
   defp body_text do
-    '''
+    """
     <!DOCTYPE html>
     <head>
     <title>test</title>
@@ -29,6 +26,6 @@ defmodule Ripley.HTTPMock do
     <p>lots of it</p>
     </body>
     </html>
-    '''
+    """
   end
 end

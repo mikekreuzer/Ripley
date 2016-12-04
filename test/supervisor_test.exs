@@ -1,38 +1,38 @@
-defmodule SupervisorTest do
+defmodule Ripley.SupervisorTest do
   use ExUnit.Case, async: false
   alias Ripley.Helper
-  # doctest Ripley.Supervisor
 
-  @test_list [%{name: "Elixir", url: "https://www.reddit.com/r/elixir"},
-              %{name: "Erlang", url: "https://www.reddit.com/r/erlang"}]
+  setup do
+    Application.ensure_all_started :httpoison
+    Application.ensure_all_started :timex
 
-  describe "Ripley.Supervisor.start_link" do
-    test "start given a list of language hashes" do
-      Helper.stop_app
-      super_pid = Helper.start_supervisor @test_list
-      assert Process.alive? super_pid
-    end
-
-    test "given a list of two language hashes, start two workers" do
-      Helper.stop_app
-      super_pid = Helper.start_supervisor @test_list
-      child_list = Supervisor.which_children super_pid
-      assert length(child_list) == 2
-    end
-
-    test ":temporary strategy, Workers don't restart, test throws runtime error offline" do
-      Helper.stop_app
-      super_pid = Helper.start_supervisor @test_list
-      child_list = Supervisor.which_children super_pid
-      Enum.each(child_list, fn(child) ->
-          {_, child_pid, _, _} = child
-          GenServer.stop child_pid
-          assert !Process.alive? child_pid
-        end
-      )
-      child_list = Supervisor.which_children super_pid
-      assert length(child_list) == 0
-    end
+    list_of_languages = Application.fetch_env!(:ripley, :subreddits)
+    {:ok, pid} = Ripley.Supervisor.start_link list_of_languages
+    {:ok, pid: pid}
   end
+
+  test "Ripley.Supervisor - given a list of two language hashes, start two workers", %{pid: pid} do
+    assert Process.alive? pid
+
+    child_list = Supervisor.which_children pid
+    assert length(child_list) == 2
+
+    on_exit fn -> Helper.stop_supervisor end
+  end
+
+  test "Ripley.Supervisor - :temporary strategy, Workers don't restart",  %{pid: pid} do
+    child_list = Supervisor.which_children pid
+    Enum.each(child_list, fn(child) ->
+        {_, child_pid, _, _} = child
+        GenServer.stop child_pid
+        assert !Process.alive? child_pid
+      end
+    )
+    child_list = Supervisor.which_children pid
+    assert length(child_list) == 0
+
+    on_exit fn -> Helper.stop_supervisor end
+  end
+
 
 end

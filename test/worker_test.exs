@@ -1,66 +1,53 @@
-defmodule WorkerTest do
-  use ExUnit.Case, async: false
+defmodule Ripley.WorkerTest do
   alias Ripley.{Helper, Language, Tally, Worker}
+  use ExUnit.Case, async: false
 
-  describe "Ripley.Worker.start_link" do
-    test "starts" do
-      {:ok, pid} = Worker.start_link %Language{}
-      assert Process.alive? pid
-    end
+  setup do
+    {:ok, pid_ok} = Worker.start_link %Language{url: "https://www.reddit.com/r/elixir/"}
+    {:ok, pid_404} = Worker.start_link %Language{url: "https://www.reddit.com/r/not_there/"}
+    {:ok, pid_err} = Worker.start_link %Language{url: "https://www.reddit.com/r/error/"}
+    {:ok, pids: %{ok: pid_ok, err404: pid_404, err: pid_err}}
   end
 
-  describe "Ripley.Worker.scrape" do
-    test "success" do
-      {:ok, pid} = Worker.start_link %Language{url: "https://www.reddit.com/r/elixir"}
-      Worker.scrape(pid, 0)
-      assert Process.alive? pid
-    end
-
-    test "404" do
-      assert_raise RuntimeError, "Error code: 404", fn ->
-        language = %Language{url: "https://www.reddit.com/r/not_there"}
-        Worker.handle_cast({:scrape, 0}, language)
-      end
-    end
-
-    test "weird error" do
-      assert_raise RuntimeError, "Error: Weird error", fn ->
-        language = %Language{url: "https://www.reddit.com/r/error"}
-        Worker.handle_cast({:scrape, 0}, language)
-      end
-    end
+  test "Ripley.Worker starts", %{pids: pids} do
+    assert Process.alive? pids.ok
+    assert Process.alive? pids.err404
+    assert Process.alive? pids.err
   end
 
-  describe "Ripley.Worker.terminate" do
-    test "append" do
-      Helper.stop_app
-      _pid = Helper.start_genserver Tally, 2
+  test "Ripley.Worker.scrape", %{pids: pids} do
+    Application.ensure_all_started :httpoison
+    Application.ensure_all_started :timex
+    timeout = 0
 
-      test_lang = %Language{name: "No", url: "http://localhost/no"}
-      {:ok, worker_pid} = GenServer.start Worker, test_lang
-      GenServer.stop worker_pid, :shutdown
+    Helper.stop_genserver Tally
+    {:ok, tally_pid} = Tally.start_link 1
+    Worker.scrape(pids.ok, timeout)
+    language = %Language{url: "https://www.reddit.com/r/elixir/", name: "Worker test"}
+    Worker.handle_cast({:scrape, timeout}, language)
+    assert :sys.get_state(tally_pid) == %{data: [%Language{index: 0,
+                                                     name: "Worker test",
+                                                     percentage: 0,
+                                                     subscribers: 5_286,
+                                                     subsstring: "5,286",
+                                                     url: "https://www.reddit.com/r/elixir/"}],
+                                           num: 1}
 
-      assert :sys.get_state(Tally) == %{num: 2,
-                                        data: [%Language{index: 0,
-                                                         percentage: 0,
-                                                         subscribers: 0,
-                                                         subsstring: "",
-                                                         name: "No",
-                                                         url: "http://localhost/no"}]}
+    on_exit fn -> Helper.stop_genserver Tally end
+  end
 
+  test "Ripley.Worker.scrape errors" do
+    Application.ensure_all_started :httpoison
+    timeout = 0
+
+    assert_raise RuntimeError, "Error code: 302", fn ->
+      language = %Language{url: "https://www.reddit.com/r/not_there/"}
+      Worker.handle_cast({:scrape, timeout}, language)
     end
 
-    test "don't append" do
-      Helper.stop_app
-      _pid = Helper.start_genserver Tally, 2
-
-      test_lang = %Language{name: "No", url: "http://localhost/no"}
-      {:ok, worker_pid} = GenServer.start Worker, test_lang
-      GenServer.stop worker_pid
-
-      assert :sys.get_state(Tally) == %{num: 2,
-                                        data: []}
-
+    assert_raise RuntimeError, "Error: Weird error", fn ->
+      language = %Language{url: "https://www.reddit.com/r/error/"}
+      Worker.handle_cast({:scrape, timeout}, language)
     end
   end
 

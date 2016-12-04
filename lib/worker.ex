@@ -20,7 +20,7 @@ defmodule Ripley.Worker do
 
   # genserver implementation
   def handle_cast({:scrape, timeout}, language) do
-    user_agent_string = "Mac:com.mikekreuzer.ripley:0.6.2 (by /u/mikekreuzer)"
+    user_agent_string = "Mac:com.mikekreuzer.ripley:0.7.0 (by /u/mikekreuzer)"
     case @http_api.get(language.url,
                        [{"User-Agent", user_agent_string}],
                        [{:timeout, timeout}, {:recv_timeout, timeout}]) do
@@ -50,9 +50,8 @@ defmodule Ripley.Worker do
 
   # working
   defp int_from(text) do
-    {int, _} = text
-    |> String.replace(",", "")
-    |> Integer.parse
+    {int, _} = text |> String.replace(",", "")
+                    |> Integer.parse
     int
   end
 
