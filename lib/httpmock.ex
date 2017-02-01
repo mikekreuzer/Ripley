@@ -1,8 +1,12 @@
 defmodule Ripley.HTTPMock do
+  @moduledoc """
+  Mocking HTTP requests
+  """
   def get(url, _user_agent, _timeouts) do
     case url do
       "https://www.reddit.com/r/elixir/" ->
-        {:ok, %HTTPoison.Response{status_code: 200, body: to_string body_text}}
+        {:ok, %HTTPoison.Response{status_code: 200,
+                                  body: to_string body_text()}}
 
       "https://www.reddit.com/r/not_there/" ->
         {:ok, %HTTPoison.Response{status_code: 302}}
@@ -11,7 +15,8 @@ defmodule Ripley.HTTPMock do
         {:error, %HTTPoison.Error{reason: "Weird error"}}
 
       _ ->
-        {:ok, %HTTPoison.Response{status_code: 200, body: to_string body_text}}
+        {:ok, %HTTPoison.Response{status_code: 200,
+                                  body: to_string body_text()}}
     end
   end
 

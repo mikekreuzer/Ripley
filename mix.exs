@@ -3,7 +3,7 @@ defmodule Ripley.Mixfile do
 
   def project do
     [app: :ripley,
-     version: "0.7.0",
+     version: "0.7.1",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -21,12 +21,12 @@ defmodule Ripley.Mixfile do
   end
 
   defp deps do
-    [{:credo, "~> 0.4", only: [:dev, :test]},
-     {:ex_doc, "~> 0.12", only: :dev},
+    [{:credo, "~> 0.5", only: [:dev, :test]},
+     {:ex_doc, "~> 0.14", only: :dev},
      {:excoveralls, "~> 0.5", only: :test},
-     {:floki, "~> 0.10.1"},
-     {:httpoison, "~> 0.9.0"},
-     {:poison, "~> 2.0"},
+     {:floki, "~> 0.13.1"},
+     {:httpoison, "~> 0.10.0"},
+     {:poison, "~> 3.0"},
      {:timex, "~> 3.0"}]
   end
 end

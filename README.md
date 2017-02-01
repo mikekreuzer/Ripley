@@ -13,10 +13,15 @@ This repo holds the script used to scrape reddit.
 - clean up the results site: navigate month to month, the css
 
 ## History
+- February 1, 2017 - 0.7.1
+  - Elixir 1.4.0
+  - version bumps for most dependencies (which mostly don't resolve a storm of new compiler deprecation & ambiguity warnings)
+  - added brackets to a function call in HTTPMock (to fix my own new warnings)
 - December 4, 2016 - 0.7.0
   - added Wolfram language (in November)
   - Elixir 1.3.4
   - cleaned up tests & config, back to 96% coverage
+  - used for data for January-February 2017
 - September 22, 2016 - 0.6.3
   - Elixir 1.3.3
   - added a temp elixir_buildpack.config for Heroku
