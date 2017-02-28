@@ -17,6 +17,7 @@ This repo holds the script used to scrape reddit.
   - Elixir 1.4.0
   - version bumps for most dependencies (which mostly don't resolve a storm of new compiler deprecation & ambiguity warnings)
   - added brackets to a function call in HTTPMock (to fix my own new warnings)
+  - used for data for March 2017-...
 - December 4, 2016 - 0.7.0
   - added Wolfram language (in November)
   - Elixir 1.3.4
