@@ -13,6 +13,8 @@ This repo holds the script used to scrape reddit.
 - clean up the results site: navigate month to month, the css
 
 ## History
+- March 6, 2017
+  - Ruby script to convert the JSON files to Zine posts
 - February 1, 2017 - 0.7.1
   - Elixir 1.4.0
   - version bumps for most dependencies (which mostly don't resolve a storm of new compiler deprecation & ambiguity warnings)
