@@ -33,14 +33,15 @@ def build_comparison(template, hash, comparison_hash)
 end
 
 def comparison_str(index, old_index)
+  assets_str = 'https://mikekreuzer.github.io/Ripley/assets'
   common_str = "width='48' height='32' \
 style='margin-top:-9px;margin-bottom:-9px;padding:0'> from"
   if old_index.nil?
     'new'
   elsif index < old_index
-    "<img src='/assets/up.png' alt='up' #{common_str} #{old_index + 1}"
+    "<img src='#{assets_str}/up.png' alt='up' #{common_str} #{old_index + 1}"
   elsif index > old_index
-    "<img src='/assets/down.png' alt='down' #{common_str} #{old_index + 1}"
+    "<img src='#{assets_str}/down.png' alt='down' #{common_str} #{old_index + 1}"
   else
     '&nbsp;'
   end
