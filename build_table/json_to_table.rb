@@ -34,8 +34,8 @@ end
 
 def comparison_str(index, old_index)
   assets_str = 'https://mikekreuzer.github.io/Ripley/assets'
-  common_str = "width='48' height='32' \
-style='margin-top:-9px;margin-bottom:-9px;padding:0'> from"
+  common_str = "width='24' height='16' \
+style='margin-top:2px;margin-bottom:-2px;'> from"
   if old_index.nil?
     'new'
   elsif index < old_index
