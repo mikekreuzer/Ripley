@@ -13,6 +13,9 @@ This repo holds the script used to scrape reddit.
 - clean up the results site: navigate month to month, the css
 
 ## History
+- May 1, 2017
+  - Elixir 1.4.2
+  - added the Hack & Xojo languages
 - March 6, 2017
   - Ruby script to convert the JSON files to Zine posts
 - February 1, 2017 - 0.7.1
