@@ -10,7 +10,6 @@ This repo holds the script used to scrape reddit.
 
 - more unit tests
 - account for ties (currently done manually)
-- clean up the results site: navigate month to month, the css
 
 ## History
 - May 1, 2017
