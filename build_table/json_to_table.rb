@@ -1,11 +1,12 @@
 require 'date'
 require 'erb'
 require 'json'
+require 'fileutils'
 
 data_hash = {}
 earliest_date = Date.today
 
-# given hashes of the new & old data, fill the ERB file to build a compasrison
+# given hashes of the new & old data, fill the ERB file to build a comparison
 # table
 
 # used to have a data binding
@@ -69,6 +70,7 @@ Dir.glob('../data/*.json').each do |file_name|
 end
 
 template = ERB.new(File.read('comparison_template.erb'), 0, '-')
+FileUtils.mkdir_p 'posts'
 
 data_hash.each do |key, hash|
   date = Date.new(key[:year], key[:month], 1)
@@ -78,6 +80,9 @@ data_hash.each do |key, hash|
   if data_hash[comparison_date_key].nil?
     comparison_date_key = { month: earliest_date.month,
                             year: earliest_date.year }
+    hash['comparison_date'] = earliest_date.strftime('%B %Y')
+  else
+    hash['comparison_date'] = comparison_date.strftime('%B %Y')
   end
   comparison_hash = data_hash[comparison_date_key]
   hash['date'] = key
