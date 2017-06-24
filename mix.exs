@@ -21,12 +21,12 @@ defmodule Ripley.Mixfile do
   end
 
   defp deps do
-    [{:credo, "~> 0.5", only: [:dev, :test]},
+    [{:credo, "~> 0.8", only: [:dev, :test]}, # from 0.5
      {:ex_doc, "~> 0.14", only: :dev},
-     {:excoveralls, "~> 0.5", only: :test},
-     {:floki, "~> 0.13.1"},
-     {:httpoison, "~> 0.10.0"},
-     {:poison, "~> 3.0"},
+     {:excoveralls, "~> 0.6", only: :test},   # from 0.5
+     {:floki, "~> 0.17.0"},                   # from 0.13.1
+     {:httpoison, "~> 0.11.1"},               # from 0.10.0
+     {:poison, "~> 3.1"},                     # from 3.1
      {:timex, "~> 3.0"}]
   end
 end

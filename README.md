@@ -12,6 +12,9 @@ This repo holds the script used to scrape reddit.
 - account for ties (currently done manually)
 
 ## History
+- June 24, 2017
+  - several dependency updates (still with the compiler warnings)
+  - Elixir 1.4.5
 - May 21, 2017
   - changed the heading '% share' to '%' to better display on the iPhone 6/7
 - May 1, 2017
