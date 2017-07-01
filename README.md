@@ -8,10 +8,13 @@ This repo holds the script used to scrape reddit.
 
 ## To do:
 
-- more unit tests
+- almost everything
 - account for ties (currently done manually)
 
 ## History
+- July 1, 2017, 0.8.0
+  - starting again in Ruby
+  - used for data for July 2017 (the Elixir code timed out, & this Ruby was a lot less effort than trying to debug the Elixir)
 - July 1, 2017, 0.7.2
   - to capture the changes below, and the Elixir code
 - June 24, 2017

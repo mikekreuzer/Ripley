@@ -1,6 +1,1 @@
-/_build
-/cover
 /_ignore
-/deps
-erl_crash.dump
-*.ez
