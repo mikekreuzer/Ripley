@@ -12,6 +12,8 @@ This repo holds the script used to scrape reddit.
 - account for ties (currently done manually)
 
 ## History
+- July 1, 2017, 0.7.2
+  - to capture the changes below, and the Elixir code
 - June 24, 2017
   - several dependency updates (still with the compiler warnings)
   - Elixir 1.4.5
@@ -26,7 +28,7 @@ This repo holds the script used to scrape reddit.
   - Elixir 1.4.0
   - version bumps for most dependencies (which mostly don't resolve a storm of new compiler deprecation & ambiguity warnings)
   - added brackets to a function call in HTTPMock (to fix my own new warnings)
-  - used for data for March 2017-...
+  - used for data for March-June 2017
 - December 4, 2016 - 0.7.0
   - added Wolfram language (in November)
   - Elixir 1.3.4
