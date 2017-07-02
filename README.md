@@ -8,13 +8,25 @@ This repo holds the script used to scrape reddit.
 
 ## To do:
 
-- almost everything
 - account for ties (currently done manually)
+- tests
+- add a rake script to: run this, move the generated files to the Zine repo, and run Zine
+- run the Rake task monthly via cron
 
 ## History
+
+### The current Ruby version
+
+- July 2, 2017, 0.8.1
+  - fixed missing URLs in the JSON
+  - adopted gem-like structure
+  - rolled March's Ruby data comparison script in
 - July 1, 2017, 0.8.0
   - starting again in Ruby
   - used for data for July 2017 (the Elixir code timed out, & this Ruby was a lot less effort than trying to debug the Elixir)
+
+### The Elixir version
+
 - July 1, 2017, 0.7.2
   - to capture the changes below, and the Elixir code
 - June 24, 2017
@@ -60,6 +72,9 @@ This repo holds the script used to scrape reddit.
   - merged Elixir to master
 - August 21, 2016 - 0.3.0
   - rewritten in Elixir, with every page a separate supervised process
+
+### The Go version
+
 - June 11, 2016 - 0.2.0
   - replaced the Go HTML template used to display the data with JavaScript
   - replaced writing data to stdout with writing to a file
