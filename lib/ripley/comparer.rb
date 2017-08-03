@@ -24,8 +24,10 @@ class Comparer
   def comparison_file_name
     comparison_date = @current_data[:dateScraped] << 12
     file = if comparison_date < @earliest_date
+             @comparison_date = 'April 2016'
              '04-2016.json'
            else
+             @comparison_date = comparison_date.strftime('%B %Y')
              comparison_date.strftime('%m-%Y.json')
            end
     File.join @data_rel_path, file
@@ -51,8 +53,9 @@ class Comparer
   end
 
   def rankings_compared_to(comparison_data)
-    hash = @current_data.dup # don't copy frozen status'
-    hash[:comparison_date] = comparison_data['dateScraped']
+    hash = @current_data.dup # don't copy its frozen status
+    # comparison_data['dateScraped'] could be outside the calendar month
+    hash[:comparison_date] = @comparison_date
     hash[:data].each_with_index do |language, index|
       next unless index < 20
       old_index = comparison_data['data'].index do |a|

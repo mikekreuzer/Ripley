@@ -11,7 +11,7 @@ tags:
     <th>Language</th>
     <th>Subscribers</th>
     <th>%</th>
-    <th>Change vs<br/><%= hash['comparison_date'] %></th>
+    <th>Change vs<br/><%= hash[:comparison_date] %></th>
   </tr>
   <% hash[:data].first(20).each do |language| -%>
   <tr>
