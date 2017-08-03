@@ -8,7 +8,7 @@ class Comparer
   attr_reader :hash
 
   def initialize(current_data)
-    @assets_str = 'https://mikekreuzer.github.io/Ripley/asset'
+    @assets_str = 'https://mikekreuzer.github.io/Ripley/assets'
     (@current_data = current_data).freeze
     @data_rel_path = ['..', 'data']
     @earliest_date = DateTime.new(2016, 4, 1)
