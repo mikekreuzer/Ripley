@@ -17,6 +17,8 @@ This repo holds the script used to scrape reddit.
 
 ### The current Ruby version
 
+- September 16, 2017
+  - added Purescript
 - July 2, 2017, 0.8.1
   - fixed missing URLs in the JSON
   - adopted gem-like structure
