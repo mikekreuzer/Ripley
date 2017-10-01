@@ -73,7 +73,8 @@ class Comparer
   def write_post_file
     FileUtils.mkdir_p 'out'
     date = @hash[:dateScraped]
-    @hash[:date] = "#{date.year}-#{date.month}-01T01:00:00+10:00"
+    two_digit_month = date.strftime('%m')
+    @hash[:date] = "#{date.year}-#{two_digit_month}-01T01:00:00+10:00"
     File.write post_file_name, @template.result(binding)
   end
 end
