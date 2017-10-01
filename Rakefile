@@ -35,17 +35,19 @@ end
 
 desc 'Push Ripley JSON file'
 task :push_json_file do
+  require 'date'
   sh 'git add .'
-  sh 'git commit'
+  sh format("git commit -m '%s'", DateTime.now.strftime('%m-%Y'))
   sh 'git push origin master'
   p 'JSON files committed & pushed'
 end
 
-desc 'Run Zine to push markdown file'
+desc 'Run Zine to push markdown file - relies on :move_files'
 task :run_zine do
-  # Dir.chdir '/Users/mike/web/ripley/'
-  # sh format('zine notice %s', @changed_files.first)
-  # to do - zine needs to handle threading better...
+  current_dir = Dir.getwd
+  Dir.chdir '/Users/mike/web/ripley/'
+  sh format('zine notice %s', @changed_files.first)
+  Dir.chdir current_dir
 end
 
 task default: %i[run_bundler run_ripley move_files push_json_file run_zine] do
