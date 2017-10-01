@@ -48,8 +48,7 @@ class Comparer
 
   def post_file_name
     date = @current_data[:dateScraped]
-    month = date.month.to_s.rjust(2, '0')
-    File.join 'out', "#{month}-#{date.year}.md"
+    File.join 'out', date.strftime('%m-%Y.md')
   end
 
   def rankings_compared_to(comparison_data)
@@ -73,8 +72,7 @@ class Comparer
   def write_post_file
     FileUtils.mkdir_p 'out'
     date = @hash[:dateScraped]
-    two_digit_month = date.strftime('%m')
-    @hash[:date] = "#{date.year}-#{two_digit_month}-01T01:00:00+10:00"
+    @hash[:date] = date.strftime('%Y-%m-01T01:00:00+10:00')
     File.write post_file_name, @template.result(binding)
   end
 end
