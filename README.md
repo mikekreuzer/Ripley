@@ -10,13 +10,14 @@ This repo holds the script used to scrape reddit.
 
 - account for ties (currently done manually)
 - tests
-- add a rake script to: run this, move the generated files to the Zine repo, and run Zine
 - run the Rake task monthly via cron
 
 ## History
 
 ### The current Ruby version
 
+- October 1, 2017, 0.8.2
+  - started on the rake script to: run this, move the generated files to gitHub & the Zine repo, and to run Zine
 - September 16, 2017
   - added Purescript
 - July 2, 2017, 0.8.1

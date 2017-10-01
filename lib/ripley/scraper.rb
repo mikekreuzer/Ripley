@@ -9,7 +9,7 @@ class Scraper
   def initialize(languages)
     @languages = languages
     @agent_header =
-      { 'User-Agent' => 'Mac:com.mikekreuzer.ripley:0.8.1 (by /u/mikekreuzer)' }
+      { 'User-Agent' => 'Mac:com.mikekreuzer.ripley:0.8.2 (by /u/mikekreuzer)' }
   end
 
   # scrape, wait, tally, write file & return data when done
