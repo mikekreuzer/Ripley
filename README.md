@@ -16,6 +16,8 @@ This repo holds the script used to scrape reddit.
 
 ### The current Ruby version
 
+- October 2, 2017
+  - added Ceylon
 - October 1, 2017, 0.8.2
   - started on the rake script to: run this, move the generated files to gitHub & the Zine repo, and to run Zine
 - September 16, 2017
