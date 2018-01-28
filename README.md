@@ -15,7 +15,8 @@ This repo holds the script used to scrape reddit.
 ## History
 
 ### The current Ruby version
-
+- January 28, 2018
+  - added Monkey
 - October 2, 2017
   - added Ceylon
 - October 1, 2017, 0.8.2
