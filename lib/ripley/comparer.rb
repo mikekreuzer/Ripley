@@ -35,13 +35,14 @@ class Comparer
   end
 
   def comparison_str(index, old_index)
-    common = "width='24' height='16' style='margin-top:2px;margin-bottom:-2px;'> from"
     if old_index.nil?
       'New'
     elsif index < old_index
-      "<img src='#{@assets_str}/up.png' alt='up' #{common} #{old_index + 1}"
+      "<img src='#{@assets_str}/up.png' alt='up' width='24' height='16' \
+      style='margin-top:2px;margin-bottom:-2px;'> from #{old_index + 1}"
     elsif index > old_index
-      "<img src='#{@assets_str}/down.png' alt='down' #{common} #{old_index + 1}"
+      "<img src='#{@assets_str}/down.png' alt='down' width='24' height='16' \
+      style='margin-top:2px;margin-bottom:-2px;'> from #{old_index + 1}"
     else
       '&nbsp;'
     end
