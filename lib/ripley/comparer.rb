@@ -1,7 +1,7 @@
-require 'date'
 require 'erb'
 require 'json'
 require 'fileutils'
+require 'time'
 
 # compare this month's data to a year ago
 class Comparer
@@ -11,7 +11,7 @@ class Comparer
     @assets_str = 'https://mikekreuzer.github.io/Ripley/assets'
     (@current_data = current_data).freeze
     @data_rel_path = ['..', 'data']
-    @earliest_date = DateTime.new(2016, 4, 1)
+    @earliest_date = Time.new(2016, 4, 1)
     @template = ERB.new(File.read('ripley/comparison_template.erb'), 0, '-')
   end
 
@@ -22,7 +22,8 @@ class Comparer
   end
 
   def comparison_file_name
-    comparison_date = @current_data[:dateScraped] << 12
+    comparison_date = Time.iso8601(@current_data[:dateScraped]) - 31_557_600
+    # one year
     file = if comparison_date < @earliest_date
              @comparison_date = 'April 2016'
              '04-2016.json'
@@ -36,7 +37,7 @@ class Comparer
   def comparison_str(index, old_index)
     common = "width='24' height='16' style='margin-top:2px;margin-bottom:-2px;'> from"
     if old_index.nil?
-      'new'
+      'New'
     elsif index < old_index
       "<img src='#{@assets_str}/up.png' alt='up' #{common} #{old_index + 1}"
     elsif index > old_index
@@ -47,7 +48,7 @@ class Comparer
   end
 
   def post_file_name
-    date = @current_data[:dateScraped]
+    date = Time.iso8601(@current_data[:dateScraped])
     File.join 'out', date.strftime('%m-%Y.md')
   end
 
@@ -71,8 +72,7 @@ class Comparer
 
   def write_post_file
     FileUtils.mkdir_p 'out'
-    date = @hash[:dateScraped]
-    @hash[:date] = date.strftime('%Y-%m-01T01:00:00+10:00')
+    @hash[:date] = @hash[:dateScraped]
     File.write post_file_name, @template.result(binding)
   end
 end

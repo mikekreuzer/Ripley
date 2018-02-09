@@ -1,8 +1,8 @@
 require 'concurrent'
-require 'date'
 require 'fileutils'
 require 'json'
 require 'mechanize'
+require 'time'
 
 # scrape reddit language pages for subscriber totals, rank these, in a json file
 class Scraper
@@ -57,12 +57,12 @@ class Scraper
 
   # write json file
   def write_json(results)
-    date = DateTime.now
-    result = { title: date.strftime('%B %Y'),
-               dateScraped: date,
+    date_now = Time.now
+    result = { title: date_now.strftime('%B %Y'),
+               dateScraped: date_now.iso8601(0),
                data: results }
     FileUtils.mkdir_p 'out'
-    file_path = File.join 'out', date.strftime('%m-%Y.json')
+    file_path = File.join 'out', date_now.strftime('%m-%Y.json')
     File.write file_path, JSON.pretty_generate(result)
     result
   end
