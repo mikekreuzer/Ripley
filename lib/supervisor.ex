@@ -11,9 +11,12 @@ defmodule Ripley.Supervisor do
 
     children = [worker(Worker, [], restart: :temporary)]
 
-    {:ok, sup_pid} = Supervisor.start_link(children,
-                                           strategy: :simple_one_for_one,
-                                           name: __MODULE__)
+    {:ok, sup_pid} =
+      Supervisor.start_link(
+        children,
+        strategy: :simple_one_for_one,
+        name: __MODULE__
+      )
 
     Enum.each(list_of_languages, &start_up(sup_pid, to_struct(&1)))
 
@@ -29,5 +32,4 @@ defmodule Ripley.Supervisor do
   defp to_struct(data) do
     struct(Language, data)
   end
-
 end

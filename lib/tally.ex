@@ -24,7 +24,7 @@ defmodule Ripley.Tally do
     new_list = [head | tail]
 
     if length(new_list) >= num_expected do
-      finish_up new_list
+      finish_up(new_list)
     end
 
     {:noreply, %{num: num_expected, data: new_list}}
@@ -36,24 +36,25 @@ defmodule Ripley.Tally do
     time_string = Timex.format!(time, "%FT%T%:z", :strftime)
     title_string = Timex.format!(time, "%B %Y", :strftime)
 
-    total_subs = data_list
-                |> Enum.map(fn(x) -> x.subscribers end)
-                |> Enum.reduce(fn(x, acc) -> x + acc end)
+    total_subs =
+      data_list
+      |> Enum.map(fn x -> x.subscribers end)
+      |> Enum.reduce(fn x, acc -> x + acc end)
 
-    sorted_list = data_list
-                  |> Enum.sort_by(&(&1.subscribers), &>=/2)
-                  |> Enum.with_index
-                  |> Enum.map(&insert_index(&1))
-                  |> Enum.map(&insert_percentage(&1, total_subs))
+    sorted_list =
+      data_list
+      |> Enum.sort_by(& &1.subscribers, &>=/2)
+      |> Enum.with_index()
+      |> Enum.map(&insert_index(&1))
+      |> Enum.map(&insert_percentage(&1, total_subs))
 
-    data = %{"title": title_string,
-             "dateScraped": time_string,
-             "data": sorted_list}
-    write_file data
+    data = %{title: title_string, dateScraped: time_string, data: sorted_list}
+    write_file(data)
 
-    app_pid = Process.whereis Ripley.App
-    if app_pid != nil && Process.alive? app_pid do
-      Application.stop app_pid
+    app_pid = Process.whereis(Ripley.App)
+
+    if app_pid != nil && Process.alive?(app_pid) do
+      Application.stop(app_pid)
     end
   end
 
@@ -63,15 +64,18 @@ defmodule Ripley.Tally do
   end
 
   defp insert_percentage(language, total_subs) do
-    percentage = Float.to_string(Float.round(
-                                 language.subscribers / total_subs * 100, 1))
+    percentage =
+      language.subscribers
+      |> (&(&1 / total_subs * 100)).()
+      |> Float.round(1)
+      |> Float.to_string()
+
     %Language{language | percentage: percentage}
   end
 
   defp write_file(data) do
     # mildly prettier json, with a new line per value
     json = String.replace(Poison.encode!(data), ~r/\{\"url/, "\n{\"url")
-    File.write! Path.join("data", "#{Mix.env}.json"), json, [:write]
+    File.write!(Path.join("data", "#{Mix.env()}.json"), json, [:write])
   end
-
 end

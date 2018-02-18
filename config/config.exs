@@ -2,6 +2,9 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
+config :ripley,
+  version: "0.9.0"
+
 case Mix.env do
   :test -> import_config "test.exs"
   _ -> import_config "prod.exs"

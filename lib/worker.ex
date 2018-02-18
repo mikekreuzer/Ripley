@@ -9,7 +9,12 @@ defmodule Ripley.Worker do
 
   @http_api Application.get_env(:ripley, :http_api)
 
-  #api
+  # api
+  # no conversion required on init
+  def init(language) do
+    {:ok, language}
+  end
+
   def start_link(language) do
     GenServer.start_link(__MODULE__, language)
   end
@@ -20,13 +25,16 @@ defmodule Ripley.Worker do
 
   # genserver implementation
   def handle_cast({:scrape, timeout}, language) do
-    user_agent_string = "Mac:com.mikekreuzer.ripley:0.7.1 (by /u/mikekreuzer)"
-    case @http_api.get(language.url,
-                       [{"User-Agent", user_agent_string}],
-                       [{:timeout, timeout}, {:recv_timeout, timeout}]) do
+    version = Application.fetch_env!(:ripley, :version)
+    user_agent_string = "Mac:com.mikekreuzer.ripley:#{version} (by /u/mikekreuzer)"
+
+    case @http_api.get(language.url, [{"User-Agent", user_agent_string}], [
+           {:timeout, timeout},
+           {:recv_timeout, timeout}
+         ]) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
-        text = text_from body
-        count = int_from text
+        text = text_from(body)
+        count = int_from(text)
         Tally.append(%{language | subscribers: count, subsstring: text})
 
       {:ok, %HTTPoison.Response{status_code: status}} when status != 200 ->
@@ -50,14 +58,16 @@ defmodule Ripley.Worker do
 
   # working
   defp int_from(text) do
-    {int, _} = text |> String.replace(",", "")
-                    |> Integer.parse
+    {int, _} =
+      text |> String.replace(",", "")
+      |> Integer.parse()
+
     int
   end
 
   defp text_from(html) do
     html
     |> Floki.find(".subscribers .number")
-    |> Floki.text
+    |> Floki.text()
   end
 end
