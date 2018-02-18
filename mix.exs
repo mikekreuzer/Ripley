@@ -4,20 +4,21 @@ defmodule Ripley.Mixfile do
 
   def project do
     [
-      app: :ripley,
-      # version also defined in config/config.exs
-      version: "0.9.0",
-      elixir: "~> 1.6.1",
-      build_embedded: Mix.env() == :prod,
-      start_permanent: Mix.env() == :prod,
-      deps: deps(),
-      test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [coveralls: :test, "coveralls.html": :test],
       aliases: [
         format: "format mix.exs \"lib/**/*.{ex,exs}\" \"test/**/*.{ex,exs}\"",
         run: "run --no-halt",
         test: "coveralls.html --no-start"
-      ]
+      ],
+      app: :ripley,
+      build_embedded: Mix.env() == :prod,
+      deps: deps(),
+      elixir: "~> 1.6.1",
+      log_level: :debug,
+      preferred_cli_env: [coveralls: :test, "coveralls.html": :test],
+      start_permanent: Mix.env() == :prod,
+      test_coverage: [tool: ExCoveralls],
+      # version also defined in config/config.exs
+      version: "0.9.0",
     ]
   end
 

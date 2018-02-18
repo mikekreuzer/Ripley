@@ -11,7 +11,7 @@ This repo holds the script used to scrape reddit.
 * replace master branch
   * Ruby comparison code
   * Rake with Mix tasks
-* discover why one test fails with leftover information in a genserver maybe 1 time in 11
+* raise errors in the Worker genserver again, as soon as I work out how to test them
 
 ## History
 
@@ -22,7 +22,8 @@ This repo holds the script used to scrape reddit.
   * Elixir 1.6.1, dependency version bumps & `mix local.rebar` together fixed many of the errors from 0.7.2
     * bunt, credo, floki, poison, & timex all still generate warnings on compilation, but far fewer than before
   * added the languages added during the 8 months of the Ruby version
-  * mix format applied
+  * mix format
+  * note that strategy: :simple_one_for_one is deprecated
 
 ### The current master branch - Ruby version
 

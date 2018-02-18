@@ -26,9 +26,9 @@ defmodule Ripley.Worker do
   # genserver implementation
   def handle_cast({:scrape, timeout}, language) do
     version = Application.fetch_env!(:ripley, :version)
-    user_agent_string = "Mac:com.mikekreuzer.ripley:#{version} (by /u/mikekreuzer)"
+    user_agent = "Mac:com.mikekreuzer.ripley:#{version} (by /u/mikekreuzer)"
 
-    case @http_api.get(language.url, [{"User-Agent", user_agent_string}], [
+    case @http_api.get(language.url, [{"User-Agent", user_agent}], [
            {:timeout, timeout},
            {:recv_timeout, timeout}
          ]) do
@@ -38,25 +38,22 @@ defmodule Ripley.Worker do
         Tally.append(%{language | subscribers: count, subsstring: text})
 
       {:ok, %HTTPoison.Response{status_code: status}} when status != 200 ->
-        raise "Error code: #{status}"
+        # raise "Error code: #{status}"
+        Tally.append(%{language | subscribers: 1, subsstring: "Error code: #{status}"})
 
       {:error, %HTTPoison.Error{reason: reason}} ->
-        raise "Error: #{reason}"
+        # raise "Error: #{reason}"
+        Tally.append(%{language | subscribers: 1, subsstring: "Error: #{reason}"})
     end
 
     {:noreply, language}
   end
 
-  def terminate(reason, language) when reason != :normal do
-    Tally.append(language)
+  def terminate(reason, language) do
     {reason, language}
   end
 
-  def terminate(reason, language) when reason == :normal do
-    {reason, language}
-  end
-
-  # working
+  # the working
   defp int_from(text) do
     {int, _} =
       text |> String.replace(",", "")

@@ -49,5 +49,55 @@ defmodule Ripley.WorkerTest do
     on_exit(fn -> Helper.stop_genserver(Tally) end)
   end
 
-  # worker scrape errors need to be redone
+  test "Ripley.Worker.scrape 302 error", %{pids: pids} do
+    Application.ensure_all_started(:httpoison)
+    Application.ensure_all_started(:timex)
+    timeout = 0
+
+    Helper.stop_genserver(Tally)
+    {:ok, tally_pid} = Tally.start_link(1)
+    Worker.scrape(pids.err302, timeout)
+    GenServer.stop(pids.err302, :normal)
+
+    assert :sys.get_state(tally_pid) == %{
+             data: [
+               %Language{
+                 index: 0,
+                 name: "Not there",
+                 subscribers: 1,
+                 subsstring: "Error code: 302",
+                 url: "https://www.reddit.com/r/not_there/"
+               }
+             ],
+             num: 1
+           }
+
+    on_exit(fn -> Helper.stop_genserver(Tally) end)
+  end
+
+  test "Ripley.Worker.scrape unknown error", %{pids: pids} do
+    Application.ensure_all_started(:httpoison)
+    Application.ensure_all_started(:timex)
+    timeout = 0
+
+    Helper.stop_genserver(Tally)
+    {:ok, tally_pid} = Tally.start_link(1)
+    Worker.scrape(pids.err, timeout)
+    GenServer.stop(pids.err, :normal)
+
+    assert :sys.get_state(tally_pid) == %{
+             data: [
+               %Language{
+                 index: 0,
+                 name: "Error",
+                 subscribers: 1,
+                 subsstring: "Error: Weird error",
+                 url: "https://www.reddit.com/r/error/"
+               }
+             ],
+             num: 1
+           }
+
+    on_exit(fn -> Helper.stop_genserver(Tally) end)
+  end
 end
