@@ -8,10 +8,11 @@ This repo holds the script used to scrape reddit.
 
 ## To do:
 
-* replace master branch
+* create replacements for the master branch
   * Ruby comparison code
-  * Rake with Mix tasks
+  * Rake - with Mix tasks
 * raise errors in the Worker genserver again, as soon as I work out how to test them
+* replaced the deprecated strategy: :simple_one_for_one with a DynamicSupervisor
 
 ## History
 
@@ -23,7 +24,6 @@ This repo holds the script used to scrape reddit.
     * bunt, credo, floki, poison, & timex all still generate warnings on compilation, but far fewer than before
   * added the languages added during the 8 months of the Ruby version
   * mix format
-  * note that strategy: :simple_one_for_one is deprecated
 
 ### The current master branch - Ruby version
 
