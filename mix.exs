@@ -18,7 +18,7 @@ defmodule Ripley.Mixfile do
       start_permanent: Mix.env() == :prod,
       test_coverage: [tool: ExCoveralls],
       # version also defined in config/config.exs
-      version: "0.9.0",
+      version: "0.9.1"
     ]
   end
 

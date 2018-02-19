@@ -3,7 +3,8 @@
 use Mix.Config
 
 config :ripley,
-  version: "0.9.0"
+  version: "0.9.1"
+  # version also defined in mix.exs
 
 case Mix.env do
   :test -> import_config "test.exs"

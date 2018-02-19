@@ -7,26 +7,31 @@ defmodule Ripley.Supervisor do
 
   # api
   def start_link(list_of_languages) do
-    import Supervisor.Spec, warn: false
-
-    children = [worker(Worker, [], restart: :temporary)]
-
     {:ok, sup_pid} =
-      Supervisor.start_link(
-        children,
-        strategy: :simple_one_for_one,
+      DynamicSupervisor.start_link(
+        __MODULE__,
+        list_of_languages,
         name: __MODULE__
       )
 
-    Enum.each(list_of_languages, &start_up(sup_pid, to_struct(&1)))
+    Enum.each(list_of_languages, &start_child(to_struct(&1)))
 
     {:ok, sup_pid}
   end
 
   # working
-  defp start_up(sup_pid, lang) do
-    {:ok, pid} = Supervisor.start_child(sup_pid, [lang])
+  def start_child(one_language) do
+    spec = Supervisor.Spec.worker(Worker, [one_language], restart: :transient)
+    {:ok, pid} = DynamicSupervisor.start_child(__MODULE__, spec)
     Worker.scrape(pid, 30_000)
+    {:ok, pid}
+  end
+
+  def init(_common_args) do
+    DynamicSupervisor.init(
+      strategy: :one_for_one,
+      extra_arguments: []
+    )
   end
 
   defp to_struct(data) do
