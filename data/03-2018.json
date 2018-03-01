@@ -1,27 +1,27 @@
 {
   "title": "March 2018",
-  "dateScraped": "2018-03-01T20:33:39+11:00",
+  "dateScraped": "2018-03-01T20:39:55+11:00",
   "data": [
     {
       "name": "Python",
-      "subsstring": "222,666",
-      "subscribers": 222666,
+      "subsstring": "222,670",
+      "subscribers": 222670,
       "url": "https://www.reddit.com/r/Python/",
       "percentage": 20.73,
       "index": 1
     },
     {
       "name": "JavaScript",
-      "subsstring": "216,353",
-      "subscribers": 216353,
+      "subsstring": "216,355",
+      "subscribers": 216355,
       "url": "https://www.reddit.com/r/javascript/",
       "percentage": 20.14,
       "index": 2
     },
     {
       "name": "Java",
-      "subsstring": "83,912",
-      "subscribers": 83912,
+      "subsstring": "83,914",
+      "subscribers": 83914,
       "url": "https://www.reddit.com/r/java/",
       "percentage": 7.81,
       "index": 3
@@ -44,16 +44,16 @@
     },
     {
       "name": "C#",
-      "subsstring": "55,511",
-      "subscribers": 55511,
+      "subsstring": "55,513",
+      "subscribers": 55513,
       "url": "https://www.reddit.com/r/csharp/",
       "percentage": 5.17,
       "index": 6
     },
     {
       "name": "Go",
-      "subsstring": "41,789",
-      "subscribers": 41789,
+      "subsstring": "41,791",
+      "subscribers": 41791,
       "url": "https://www.reddit.com/r/golang/",
       "percentage": 3.89,
       "index": 7
@@ -148,8 +148,8 @@
     },
     {
       "name": "TypeScript",
-      "subsstring": "7,318",
-      "subscribers": 7318,
+      "subsstring": "7,319",
+      "subscribers": 7319,
       "url": "https://www.reddit.com/r/typescript/",
       "percentage": 0.68,
       "index": 19
