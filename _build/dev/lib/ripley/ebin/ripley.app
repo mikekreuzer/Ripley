@@ -1,0 +1,10 @@
+{application,ripley,
+             [{description,"ripley"},
+              {modules,['Elixir.Poison.Encoder.Ripley.Language',
+                        'Elixir.Ripley.App','Elixir.Ripley.HTTPMock',
+                        'Elixir.Ripley.Language','Elixir.Ripley.Supervisor',
+                        'Elixir.Ripley.Tally','Elixir.Ripley.Worker']},
+              {registered,[]},
+              {vsn,"0.9.1"},
+              {applications,[kernel,stdlib,elixir,logger,httpoison,timex]},
+              {mod,{'Elixir.Ripley.App',[]}}]}.
