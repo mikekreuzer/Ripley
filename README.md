@@ -15,6 +15,8 @@ This repo holds the script used to scrape reddit.
 ## History
 
 ### The current Ruby version
+- April 1, 2018
+  - added Opa
 - March 17, 2018
   - added languages: AppleScript, ColdFusion, R, VBA
   - updated the About page on the site
