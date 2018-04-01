@@ -1,16 +1,28 @@
 {
   "name": "ripley-js",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.10.1",
+  "description": "The script used to create Ripley, the reddit programming index",
   "main": "index.js",
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/mikekreuzer/Ripley"
+  },
   "scripts": {
     "test": "nyc jasmine"
   },
   "nyc": {
     "include": ["lib/*.js"]
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "crawl",
+    "index",
+    "reddit",
+    "scrape"
+  ],
+  "author": {
+    "name": "Mike Kreuzer",
+    "email": "mike@mikekreuzer.com"
+  },
   "license": "MIT",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
