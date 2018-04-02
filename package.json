@@ -3,15 +3,17 @@
   "version": "0.10.1",
   "description": "The script used to create Ripley, the reddit programming index",
   "main": "index.js",
-  "repository" : {
+  "repository": {
     "type": "git",
-    "url": "https://github.com/mikekreuzer/Ripley.git"
+    "url": "https://github.com/mikekreuzer/Ripley.git#javascript"
   },
   "scripts": {
     "test": "nyc jasmine"
   },
   "nyc": {
-    "include": ["lib/*.js"]
+    "include": [
+      "lib/*.js"
+    ]
   },
   "keywords": [
     "crawl",
@@ -31,6 +33,7 @@
     "node-fetch": "^2.1.2"
   },
   "devDependencies": {
+    "eslint": "^4.19.1",
     "jasmine": "^3.1.0",
     "nyc": "^11.6.0"
   }

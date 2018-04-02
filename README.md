@@ -15,11 +15,13 @@ This repo holds the script used to scrape reddit monthly since April 2016.
 ## History
 
 ### The JavaScript version (not used... yet...)
+- April 2, 2018
+  - ESLint, 
 - April 1, 2018 - 0.10.1
   - rewritten in JavaScript
 
 ### Another Elixir branch (not used)
-- March, 2018 - 0.9.1
+- February 19, 2018 - 0.9.1
   - rewritten Elixir version
 
 ### The Ruby version (July 2017 - ...)
