@@ -15,8 +15,8 @@ This repo holds the script used to scrape reddit monthly since April 2016.
 ## History
 
 ### The JavaScript version (not used... yet...)
-- April 2, 2018
-  - ESLint, 
+- April 2, 2018 - 0.10.2
+  - ESLint, npm version... (needs a synch after for gh, and a publish after for npm)
 - April 1, 2018 - 0.10.1
   - rewritten in JavaScript
 
