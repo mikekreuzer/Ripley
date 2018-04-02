@@ -1,6 +1,6 @@
 {
   "name": "ripley-js",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "The script used to create Ripley, the reddit programming index",
   "main": "index.js",
   "repository": {
