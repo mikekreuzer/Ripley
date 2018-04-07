@@ -4,21 +4,33 @@
 
 Ripley ranks reddit’s programming language subreddits by number of subscribers -- to see which [languages programmers are talking about this month][site].
 
-This repo holds the script used to scrape reddit.
+This repo holds the script used to scrape reddit monthly since April 2016.
 
 ## To do:
 
 - account for ties (currently done manually)
-- tests
-- run the Rake task monthly via cron
+- back to Rake & cron (or equivalents)
 
 ## History
 
-### The current Ruby version
+### The current JavaScript version
+- April 7, 2018 - 0.11.0
+  - jest
+  - some tests & refactoring
+- April 2, 2018 - 0.10.2
+  - ESLint, npm version
+- April 1, 2018 - 0.10.1
+  - rewritten in JavaScript
+
+### Another Elixir branch (not used)
+- February 19, 2018 - 0.9.1
+  - rewritten Elixir version
+
+### The Ruby version (July 2017 - April 2018)
 - April 1, 2018
   - added Opa
 - March 17, 2018
-  - added languages: AppleScript, ColdFusion, R, VBA
+  - added languages: AppleScript, ColdFusion, R, & VBA
   - updated the About page on the site
 - February 9, 2018
   - added Reason
@@ -26,21 +38,21 @@ This repo holds the script used to scrape reddit.
   - added Monkey
 - October 2, 2017
   - added Ceylon
-- October 1, 2017, 0.8.2
+- October 1, 2017 - 0.8.2
   - started on the rake script to: run this, move the generated files to gitHub & the Zine repo, and to run Zine
 - September 16, 2017
   - added Purescript
-- July 2, 2017, 0.8.1
+- July 2, 2017 - 0.8.1
   - fixed missing URLs in the JSON
   - adopted gem-like structure
   - rolled March's Ruby data comparison script in
-- July 1, 2017, 0.8.0
+- July 1, 2017 - 0.8.0
   - starting again in Ruby
   - used for data for July 2017 (the Elixir code timed out, & this Ruby was a lot less effort than trying to debug the Elixir)
 
-### The Elixir version
+### The Elixir version (September 2016 - June 2017)
 
-- July 1, 2017, 0.7.2
+- July 1, 2017 - 0.7.2
   - to capture the changes below, and the Elixir code
 - June 24, 2017
   - several dependency updates (still with the compiler warnings)
@@ -86,7 +98,7 @@ This repo holds the script used to scrape reddit.
 - August 21, 2016 - 0.3.0
   - rewritten in Elixir, with every page a separate supervised process
 
-### The Go version
+### The Go version (April - August 2016)
 
 - June 11, 2016 - 0.2.0
   - replaced the Go HTML template used to display the data with JavaScript

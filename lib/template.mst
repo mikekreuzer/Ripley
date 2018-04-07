@@ -1,0 +1,41 @@
+---
+title: '{{title}}'
+date: '{{dateScraped}}'
+tags:
+- ripley
+---
+
+<div>
+  <h2>{{title}}</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Language</th>
+        <th>Subscribers</th>
+        <th>%</th>
+        <th>Change vs {{oldTitle}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#tableData}}
+        <tr>
+          <td>{{index}}</td>
+          <td><a href="{{{url}}}">{{name}}</a></td>
+          <td>{{subsstring}}</td>
+          <td>{{percentage}}</td>
+          <td>{{{delta}}}</td>
+        </tr>
+      {{/tableData}}
+    </tbody>
+  </table>
+
+  <p>Outside of the top 20:
+    {{#paraData}}
+      <a href="{{{url}}}">{{name}} ({{subsstring}})</a>{{^last}}, {{/last}}
+      {{#last}}.{{/last}}
+    {{/paraData}}
+  </p>
+
+  <p>Date scraped: {{dateScraped}}</p>
+</div>

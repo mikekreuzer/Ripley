@@ -1,0 +1,35 @@
+{
+  "name": "ripley-js",
+  "version": "0.10.2",
+  "description": "The script used to create Ripley, the reddit programming index",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikekreuzer/Ripley.git#javascript"
+  },
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "keywords": [
+    "crawl",
+    "index",
+    "languages",
+    "reddit",
+    "scrape"
+  ],
+  "author": {
+    "name": "Mike Kreuzer",
+    "email": "mike@mikekreuzer.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "moment": "^2.22.0",
+    "mustache": "^2.3.0",
+    "node-fetch": "^2.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "jest": "^22.4.3"
+  }
+}
