@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mikekreuzer/Ripley.git#javascript"
+    "url": "https://github.com/mikekreuzer/Ripley.git"
   },
   "scripts": {
     "test": "jest --coverage"
