@@ -1,6 +1,7 @@
 const getComparison = require('../lib/compare'),
   compare = getComparison.test.compare,
-  template = getComparison.test.template;
+  template = getComparison.test.template,
+  path = require('path');
 
 describe('compare()', () => {
   test('it compares two data sets and calls template() - when there\'s a change', () => {
@@ -28,6 +29,7 @@ describe('compare()', () => {
           index: 1
         }]
       },
+      outPath = 'path',
       result = {
         dateScraped: undefined,
         oldTitle: undefined,
@@ -50,9 +52,9 @@ describe('compare()', () => {
         title: undefined
       };
 
-    compare(newData, oldData, mockTemplate);
+    compare(newData, oldData, outPath, mockTemplate);
 
-    expect(mockTemplate).toHaveBeenCalledWith(result);
+    expect(mockTemplate).toHaveBeenCalledWith(result, outPath);
   });
 
   test('it compares two data sets and calls template()  - when there\'s no change', () => {
@@ -77,6 +79,7 @@ describe('compare()', () => {
           index: 2
         }]
       },
+      outPath = 'path',
       result = {
         dateScraped: undefined,
         oldTitle: undefined,
@@ -94,9 +97,9 @@ describe('compare()', () => {
         title: undefined
       };
 
-    compare(newData, oldData, mockTemplate);
+    compare(newData, oldData, outPath, mockTemplate);
 
-    expect(mockTemplate).toHaveBeenCalledWith(result);
+    expect(mockTemplate).toHaveBeenCalledWith(result, outPath);
   });
 });
 
@@ -114,7 +117,9 @@ describe('template()', () => {
           }
         };
       }),
-      mockMustache = jest.genMockFromModule('mustache');
+      mockMustache = jest.genMockFromModule('mustache'),
+      outPath = 'path',
+      filePath = path.join(outPath, 'MM-YYYY.md');
     mockFs.readFile = jest.fn((_path, _format, CB) => {
       CB(false, 'file');
     });
@@ -123,10 +128,10 @@ describe('template()', () => {
     });
     mockFs.writeFile = jest.fn();
 
-    template(data, mockFs, mockMoment, mockMustache, errorFn);
+    template(data, outPath, mockFs, mockMoment, mockMustache, errorFn);
 
     expect(mockFs.readFile).toHaveBeenCalled();
-    expect(mockFs.writeFile).toHaveBeenCalledWith('out/MM-YYYY.md' || 'out\\MM-YYYY.md', 'HTML', errorFn);
+    expect(mockFs.writeFile).toHaveBeenCalledWith(filePath, 'HTML', errorFn);
   });
 });
 
@@ -142,7 +147,8 @@ describe('getComparison()', () => {
         },
         subtract: jest.fn().mockReturnThis()
       };
-    });
+    }),
+    outPath = 'path';
 
   beforeEach(() => {
     mockComp.mockReset();
@@ -157,9 +163,9 @@ describe('getComparison()', () => {
       templateReadCB(null, oldData);
     });
 
-    getComparison.getComparison(data, mockFs, mockMoment, mockComp, mockTemplateReadCB);
+    getComparison.getComparison(data, outPath, mockFs, mockMoment, mockComp, mockTemplateReadCB);
 
-    expect(mockFs.readFile).toHaveBeenCalledWith('data/2000–01.json', 'utf8', mockTemplateReadCB);
+    expect(mockFs.readFile).toHaveBeenCalledWith(path.join(__dirname, '..', 'data', '2000–01.json'), 'utf8', mockTemplateReadCB);
     expect(mockMoment).toHaveBeenCalled();
     expect(mockComp).toHaveBeenCalledWith(data, oldData);
   });
@@ -174,7 +180,7 @@ describe('getComparison()', () => {
     });
 
     expect(() => {
-      getComparison.getComparison(data, mockFs, mockMoment, mockComp, mockTemplateReadCB);
+      getComparison.getComparison(data, outPath, mockFs, mockMoment, mockComp, mockTemplateReadCB);
     }).toThrow('throw this error');
 
     expect(mockFs.readFile).toHaveBeenCalled();

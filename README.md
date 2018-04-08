@@ -14,11 +14,13 @@ This repo holds the script used to scrape reddit monthly since April 2016.
 ## History
 
 ### The current JavaScript version
+- April 9, 2018 - 0.12.0
+  - CLI
 - April 7, 2018 - 0.11.0
-  - jest
+  - Jest, replacing Jasmine
   - some tests & refactoring
 - April 2, 2018 - 0.10.2
-  - ESLint, npm version
+  - ESLint
 - April 1, 2018 - 0.10.1
   - rewritten in JavaScript
 

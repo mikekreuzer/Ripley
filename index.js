@@ -1,3 +1,3 @@
 const scrape = require ('./lib/scrape');
 
-scrape.getParallel();
+module.exports.scrape = scrape.getParallel;

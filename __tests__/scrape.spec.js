@@ -94,7 +94,8 @@ describe('saveJSONFile()', () => {
     errorCB = (err) => {
       if (err) throw err;
     },
-    expectedFileName = path.join('out', 'dateString.json'),
+    outPath = 'path',
+    expectedFileName = path.join(__dirname, '..', 'data', 'dateString.json'),
     mockComparisonFunc = jest.fn(),
     mockFs = jest.genMockFromModule('fs'),
     mockMoment = jest.fn(() => {
@@ -105,24 +106,25 @@ describe('saveJSONFile()', () => {
       };
     });
 
+
   test('it writes data and title based on month/year to a file named after the month/year, calls a comparison function', () => {
     mockFs.writeFile = jest.fn();
-    saveJSONFile(data, mockFs, mockMoment, mockComparisonFunc, errorCB);
+    saveJSONFile(data, outPath, mockFs, mockMoment, mockComparisonFunc, errorCB);
     expect(mockFs.writeFile).toHaveBeenCalledWith(expectedFileName, JSON.stringify(expectedData, null, 2), errorCB);
-    expect(mockComparisonFunc).toHaveBeenCalledWith(expectedData);
+    expect(mockComparisonFunc).toHaveBeenCalledWith(expectedData, outPath);
   });
 
   test('it uses the default error function', () => {
     mockFs.writeFile = jest.fn();
-    saveJSONFile(data, mockFs, mockMoment, mockComparisonFunc);
+    saveJSONFile(data, outPath, mockFs, mockMoment, mockComparisonFunc);
     expect(mockFs.writeFile).toHaveBeenCalledWith(expectedFileName, JSON.stringify(expectedData, null, 2), expect.any(Function));
-    expect(mockComparisonFunc).toHaveBeenCalledWith(expectedData);
+    expect(mockComparisonFunc).toHaveBeenCalledWith(expectedData, outPath);
   });
 
   test('it throws errors', () => {
     mockFs.writeFile = jest.fn();
     expect(() => {
-      saveJSONFile(data, null, mockMoment, mockComparisonFunc);
+      saveJSONFile(data, outPath, null, mockMoment, mockComparisonFunc);
     }).toThrow(TypeError);
   });
 });
@@ -200,21 +202,22 @@ describe('getParallel()', () => {
       }
     }),
     mockSaveJSONFile = jest.fn(),
-    mockFs = jest.genMockFromModule('fs');
+    mockFs = jest.genMockFromModule('fs'),
+    outPath = 'path';
 
   test('it calls the other scrape functions, piping data between them', async () => {
-    scrape.getParallel(languages, mockSaveJSONFile, mockFs, mockRequestAsync, mockAddIndexAndPercentages);
+    scrape.getParallel(outPath, languages, mockSaveJSONFile, mockFs, mockRequestAsync, mockAddIndexAndPercentages);
 
     await flushPromises();
     expect(mockRequestAsync).toHaveBeenCalledWith(languages[0], fetch);
     expect(mockRequestAsync).toHaveBeenCalledWith(languages[1], fetch);
     expect(mockAddIndexAndPercentages).toHaveBeenCalledWith(languagesWithNumbers);
-    expect(mockSaveJSONFile).toHaveBeenCalledWith(languagesFinalMocked, mockFs, expect.any(Function), expect.any(Function));
+    expect(mockSaveJSONFile).toHaveBeenCalledWith(languagesFinalMocked, outPath, mockFs, expect.any(Function), expect.any(Function));
   });
 
   test('it calls the default functions (apart from saveJSONFile())', async () => {
-    scrape.getParallel(languages, mockSaveJSONFile, mockFs, requestAsync, addIndexAndPercentages);
+    scrape.getParallel(outPath, languages, mockSaveJSONFile, mockFs, requestAsync, addIndexAndPercentages);
     await flushPromises();
-    expect(mockSaveJSONFile).toHaveBeenCalledWith(languagesFinalEndToEnd, mockFs, expect.any(Function), expect.any(Function));
+    expect(mockSaveJSONFile).toHaveBeenCalledWith(languagesFinalEndToEnd, outPath, mockFs, expect.any(Function), expect.any(Function));
   });
 });
