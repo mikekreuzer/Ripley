@@ -16,7 +16,7 @@ This repo holds the script used to scrape reddit.
 ### Ruby (May 2018 - current)
 - May 6, 2018 - 0.13.0
     - lucky 13
-    - the reddit API now includes subscriber numbers, replace Mechanize with Redd
+    - the reddit API now includes subscriber numbers, replaced Mechanize with Redd
     - languages array has subreddit name not url, in new style hash format
     - fixed some relative paths
     - rake file wound back, pending changes to Zine
