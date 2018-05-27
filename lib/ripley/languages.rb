@@ -52,6 +52,7 @@ LANGUAGES = [
   { name: 'Scheme', subreddit: 'scheme' },
   { name: 'Scratch', subreddit: 'scratch' },
   { name: 'Smalltalk', subreddit: 'smalltalk' },
+  { name: 'Standard ML', subreddit: 'sml' },
   { name: 'Swift', subreddit: 'swift' },
   { name: 'TCL', subreddit: 'Tcl' },
   { name: 'TypeScript', subreddit: 'typescript' },

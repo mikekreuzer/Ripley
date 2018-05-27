@@ -14,6 +14,8 @@ This repo holds the script used to scrape reddit.
 
 ## History
 ### Ruby (May 2018 - current)
+- May 27, 2018
+    - added Standard ML
 - May 6, 2018 - 0.13.0
     - lucky 13
     - the reddit API now includes subscriber numbers, replaced Mechanize with Redd
