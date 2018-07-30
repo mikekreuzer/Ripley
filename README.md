@@ -8,14 +8,16 @@ This repo holds the script used to scrape reddit.
 
 ## To do:
 
-- rxjs with back pressure from 429 errors, maybe
 - account for ties
 - tests
 
 ## History
 ### Ruby (May 2018 - current)
+- July 30, 2018 - 0.13.1
+    - added languages: Chapel, Racket, Solidity, & Wasm
+    - changed 'rank' to the pound sign to save some space in the ERB template
 - May 27, 2018
-    - added Standard ML
+    - added: Standard ML
 - May 6, 2018 - 0.13.0
     - lucky 13
     - the reddit API now includes subscriber numbers, replaced Mechanize with Redd
@@ -40,20 +42,20 @@ This repo holds the script used to scrape reddit.
 
 ### Ruby (July 2017 - April 2018)
 - April 1, 2018
-    - added Opa
+    - added: Opa
 - March 17, 2018
     - added languages: AppleScript, ColdFusion, R, & VBA
     - updated the About page on the site
 - February 9, 2018
-    - added Reason
+    - added: Reason
 - January 28, 2018
-    - added Monkey
+    - added: Monkey
 - October 2, 2017
-    - added Ceylon
+    - added: Ceylon
 - October 1, 2017 - 0.8.2
     - started on the rake script to: run this, move the generated files to gitHub & the Zine repo, and to run Zine
 - September 16, 2017
-    - added Purescript
+    - added: Purescript
 - July 2, 2017 - 0.8.1
     - fixed missing URLs in the JSON
     - adopted gem-like structure
@@ -73,7 +75,7 @@ This repo holds the script used to scrape reddit.
     - changed the heading '% share' to '%' to better display on the iPhone 6/7
 - May 1, 2017
     - Elixir 1.4.2
-    - added the Hack & Xojo languages
+    - added languages: Hack & Xojo
 - March 6, 2017
     - Ruby script to convert the JSON files to Zine posts
 - February 1, 2017 - 0.7.1
@@ -82,7 +84,7 @@ This repo holds the script used to scrape reddit.
     - added brackets to a function call in HTTPMock (to fix my own new warnings)
     - used for data for March-June 2017
 - December 4, 2016 - 0.7.0
-    - added Wolfram language (in November)
+    - added: Wolfram (in November)
     - Elixir 1.3.4
     - cleaned up tests & config, back to 96% coverage
     - used for data for January-February 2017

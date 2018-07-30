@@ -5,6 +5,7 @@ LANGUAGES = [
   { name: 'Assembly', subreddit: 'asm' },
   { name: 'C', subreddit: 'C_Programming' },
   { name: 'Ceylon', subreddit: 'ceylon' },
+  { name: 'Chapel', subreddit: 'chapel' },
   { name: 'Clojure', subreddit: 'Clojure' },
   { name: 'COBOL', subreddit: 'cobol' },
   { name: 'CoffeeScript', subreddit: 'coffeescript' },
@@ -45,6 +46,7 @@ LANGUAGES = [
   { name: 'Purescript', subreddit: 'purescript' },
   { name: 'Python', subreddit: 'Python' },
   { name: 'R', subreddit: 'Rlanguage' },
+  { name: 'Racket', subreddit: 'Racket' },
   { name: 'Reason', subreddit: 'reasonml' },
   { name: 'Ruby', subreddit: 'ruby' },
   { name: 'Rust', subreddit: 'rust' },
@@ -52,6 +54,7 @@ LANGUAGES = [
   { name: 'Scheme', subreddit: 'scheme' },
   { name: 'Scratch', subreddit: 'scratch' },
   { name: 'Smalltalk', subreddit: 'smalltalk' },
+  { name: 'Solidity', subreddit: 'solidity' },
   { name: 'Standard ML', subreddit: 'sml' },
   { name: 'Swift', subreddit: 'swift' },
   { name: 'TCL', subreddit: 'Tcl' },
@@ -59,6 +62,7 @@ LANGUAGES = [
   { name: 'Vala', subreddit: 'vala' },
   { name: 'VBA', subreddit: 'vba' },
   { name: 'Visual Basic', subreddit: 'visualbasic' },
+  { name: 'Wasm', subreddit: 'WebAssembly' },
   { name: 'Wolfram', subreddit: 'wolframlanguage' },
   { name: 'Xojo', subreddit: 'xojo' }
 ].freeze
