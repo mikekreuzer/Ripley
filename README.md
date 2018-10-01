@@ -15,7 +15,7 @@ This repo holds the script used to scrape reddit.
 ### Ruby (May 2018 - current)
 - July 30, 2018 - 0.13.1
     - added languages: Chapel, Racket, Solidity, & Wasm
-    - changed 'rank' to the pound sign to save some space in the ERB template
+    - changed 'rank' to the pound sign to save some space
 - May 27, 2018
     - added: Standard ML
 - May 6, 2018 - 0.13.0
