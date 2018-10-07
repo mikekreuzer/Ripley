@@ -13,6 +13,9 @@ This repo holds the script used to scrape reddit.
 
 ## History
 ### Ruby (May 2018 - current)
+- October 7, 2018 - 0.14.0
+    - replaced Redd with my own code for the Reddit API (Redd was fine, but it's the core business of the script)
+    - updated the rake dependency
 - July 30, 2018 - 0.13.1
     - added languages: Chapel, Racket, Solidity, & Wasm
     - changed 'rank' to the pound sign to save some space

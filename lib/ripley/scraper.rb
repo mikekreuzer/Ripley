@@ -1,16 +1,15 @@
 require 'concurrent'
-require_relative '../../_ignore/credentials'
+require_relative '../../_ignore/new_credentials'
 require 'fileutils'
 require 'json'
-# require 'mechanize'
-require 'redd'
+require_relative 'reddit'
 require 'time'
 
 # get reddit language pages for subscriber totals, rank these, in a json file
 class Scraper
   def initialize(languages)
     @languages = languages
-    @session = Redd.it(CREDENTIALS)
+    @session = Reddit.new(credentials: CREDENTIALS)
   end
 
   # scrape, wait, tally, write file & return data when done
@@ -36,7 +35,7 @@ class Scraper
   def scrape_pages_concurrently(languages)
     languages.map do |language|
       Concurrent.dataflow do
-        count = @session.subreddit(language[:subreddit]).subscribers.to_s
+        count = @session.count(lang: language[:subreddit]).to_s
         { name: language[:name],
           subsstring: count.tr('_', ','),
           subscribers: count.delete('_').to_i,
