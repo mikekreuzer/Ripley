@@ -13,6 +13,8 @@ This repo holds the script used to scrape reddit.
 
 ## History
 ### Ruby (May 2018 - current)
+- October 21, 2018
+    - added languages: Ballerina, Fantom, Nemerle, Oberon
 - October 7, 2018 - 0.14.0
     - replaced Redd with my own code for the Reddit API (Redd was fine, but it's the core business of the script)
     - updated the rake dependency
