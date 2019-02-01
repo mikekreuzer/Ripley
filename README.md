@@ -132,4 +132,5 @@ This repo holds the script used to scrape reddit.
     - initial commit
     - used for data from April-June 2016
 
-[site]: http://mikekreuzer.github.io/Ripley/
+[site]: https://ripley.red/
+[exsite]: http://mikekreuzer.github.io/Ripley/
