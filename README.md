@@ -13,6 +13,9 @@ This repo holds the script used to scrape reddit.
 
 ## History
 ### Ruby (May 2018 - current)
+- February 1, 2019 - 0.15.0
+    - migrated site hosting off Github, to AWS S3
+    - using the domain ripley.red
 - October 21, 2018
     - added languages: Ballerina, Fantom, Nemerle, Oberon
 - October 7, 2018 - 0.14.0

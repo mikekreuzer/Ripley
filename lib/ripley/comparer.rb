@@ -8,7 +8,7 @@ class Comparer
   attr_reader :hash
 
   def initialize(current_data)
-    @assets_str = 'https://mikekreuzer.github.io/Ripley/assets'
+    @assets_str = 'https://ripley.red/assets'
     (@current_data = current_data).freeze
     @data_rel_path = ['data']
     @earliest_date = Time.new(2016, 4, 1)
@@ -39,10 +39,10 @@ class Comparer
       'New'
     elsif index < old_index
       "<img src='#{@assets_str}/up.png' alt='up' width='24' height='16' \
-      style='margin-top:2px;margin-bottom:-2px;'> from #{old_index + 1}"
+      class='direction-icon'> from #{old_index + 1}"
     elsif index > old_index
       "<img src='#{@assets_str}/down.png' alt='down' width='24' height='16' \
-      style='margin-top:2px;margin-bottom:-2px;'> from #{old_index + 1}"
+      class='direction-icon'> from #{old_index + 1}"
     else
       '&nbsp;'
     end
