@@ -13,6 +13,9 @@ This repo holds the script used to scrape reddit.
 
 ## History
 ### Ruby (May 2018 - current)
+- July 1, 2019 - 0.16.0
+    - added back the commas for thousands, missing since v0.13.0 (not in time for July)
+    - will need to touch up the intervening months' json files
 - February 1, 2019 - 0.15.0
     - migrated site hosting off Github, to AWS S3
     - using the domain ripley.red

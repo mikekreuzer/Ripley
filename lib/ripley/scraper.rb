@@ -12,6 +12,13 @@ class Scraper
     @session = Reddit.new(credentials: CREDENTIALS)
   end
 
+  def add_commas(int)
+    int.to_s
+       .reverse
+       .gsub(/(\d{3})(?=\d)/, '\\1,')
+       .reverse
+  end
+
   # scrape, wait, tally, write file & return data when done
   def scrape
     page_data = scrape_pages_concurrently(@languages)
@@ -23,6 +30,7 @@ class Scraper
   def insert_percentages_and_index(array_of_hashes)
     total = array_of_hashes.map { |r| r[:subscribers] }.reduce(0, :+)
     return array_of_hashes if total.zero?
+
     array_of_hashes.map.with_index do |lang, index|
       lang[:percentage] = (lang[:subscribers].to_f / total * 100).round(2)
       lang[:index] = index + 1
@@ -35,10 +43,10 @@ class Scraper
   def scrape_pages_concurrently(languages)
     languages.map do |language|
       Concurrent.dataflow do
-        count = @session.count(lang: language[:subreddit]).to_s
+        count = @session.count(lang: language[:subreddit])
         { name: language[:name],
-          subsstring: count.tr('_', ','),
-          subscribers: count.delete('_').to_i,
+          subsstring: add_commas(count),
+          subscribers: count,
           url: "https://www.reddit.com/r/#{language[:subreddit]}/" }
       end
     end

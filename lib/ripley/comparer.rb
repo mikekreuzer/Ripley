@@ -59,6 +59,7 @@ class Comparer
     hash[:comparison_date] = @comparison_date
     hash[:data].each_with_index do |language, index|
       next unless index < 20
+
       old_index = comparison_data['data'].index do |a|
         a['name'] == language[:name]
       end
