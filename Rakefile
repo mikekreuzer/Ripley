@@ -33,11 +33,11 @@ end
 
 desc 'Push Ripley JSON file'
 task :push_json_file do
-  # require 'date'
-  # sh 'git add .'
-  # sh format("git commit -m '%s'", DateTime.now.strftime('%m-%Y'))
-  # sh 'git push origin master'
-  p 'JSON files NOT committed & pushed'
+  require 'date'
+  sh 'git add .'
+  sh format("git commit -m '%s'", DateTime.now.strftime('%m-%Y'))
+  sh 'git push origin master'
+  p 'JSON file committed & pushed'
 end
 
 desc 'Run Zine to push markdown file - relies on :move_files'
