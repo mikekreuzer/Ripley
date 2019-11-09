@@ -13,6 +13,8 @@ This repo holds the script used to scrape reddit.
 
 ## History
 ### Ruby (May 2018 - current)
+- November 6, 2019 - 0.16.1
+    - added: Red
 - July 1, 2019 - 0.16.0
     - added back the commas for thousands, missing since v0.13.0 (not in time for July)
     - will need to touch up the intervening months' json files

@@ -52,6 +52,7 @@ LANGUAGES = [
   { name: 'R', subreddit: 'Rlanguage' },
   { name: 'Racket', subreddit: 'Racket' },
   { name: 'Reason', subreddit: 'reasonml' },
+  { name: 'Red', subreddit: 'redlang'},
   { name: 'Ruby', subreddit: 'ruby' },
   { name: 'Rust', subreddit: 'rust' },
   { name: 'Scala', subreddit: 'scala' },
