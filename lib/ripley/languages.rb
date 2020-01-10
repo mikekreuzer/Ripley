@@ -69,5 +69,6 @@ LANGUAGES = [
   { name: 'Visual Basic', subreddit: 'visualbasic' },
   { name: 'Wasm', subreddit: 'WebAssembly' },
   { name: 'Wolfram', subreddit: 'wolframlanguage' },
-  { name: 'Xojo', subreddit: 'xojo' }
+  { name: 'Xojo', subreddit: 'xojo' },
+  { name: 'Zig', subreddit: 'zig' }
 ].freeze
