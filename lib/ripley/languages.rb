@@ -35,7 +35,6 @@ LANGUAGES = [
   { name: 'Kotlin', subreddit: 'Kotlin' },
   { name: 'Lisp', subreddit: 'lisp' },
   { name: 'Lua', subreddit: 'lua' },
-  { name: 'Monkey', subreddit: 'MONKEY' },
   { name: 'Nemerle', subreddit: 'nemerle' },
   { name: 'Nim', subreddit: 'nim' },
   { name: 'Objective C', subreddit: 'ObjectiveC' },

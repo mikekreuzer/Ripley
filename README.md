@@ -15,6 +15,8 @@ This repo holds the script used to scrape reddit.
 
 ### Ruby (May 2018 - current)
 
+- February 1, 2020 - 0.16.3
+  - removed Monkey, the first language subreddit here to die
 - January 11, 2020 - 0.16.2
   - added: Zig
 - November 9, 2019 - 0.16.1

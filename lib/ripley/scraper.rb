@@ -56,6 +56,7 @@ class Scraper
   def tally(array_of_workers)
     Concurrent.dataflow(*array_of_workers) do
       results = []
+      # another to do - need to check if error returned here
       array_of_workers.each { |work| results << work.value }
       sorted_results = results.sort_by { |hsh| hsh[:subscribers] }.reverse!
       insert_percentages_and_index(sorted_results)
