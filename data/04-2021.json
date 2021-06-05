@@ -1,0 +1,590 @@
+{
+  "title": "April 2021",
+  "dateScraped": "2021-04-02T08:33:42+11:00",
+  "data": [
+    {
+      "name": "JavaScript",
+      "subsstring": "1,435,017",
+      "subscribers": 1435017,
+      "url": "https://www.reddit.com/r/javascript/",
+      "percentage": 35.55,
+      "index": 1
+    },
+    {
+      "name": "Python",
+      "subsstring": "781,196",
+      "subscribers": 781196,
+      "url": "https://www.reddit.com/r/Python/",
+      "percentage": 19.35,
+      "index": 2
+    },
+    {
+      "name": "Java",
+      "subsstring": "226,366",
+      "subscribers": 226366,
+      "url": "https://www.reddit.com/r/java/",
+      "percentage": 5.61,
+      "index": 3
+    },
+    {
+      "name": "C++",
+      "subsstring": "178,504",
+      "subscribers": 178504,
+      "url": "https://www.reddit.com/r/cpp/",
+      "percentage": 4.42,
+      "index": 4
+    },
+    {
+      "name": "C#",
+      "subsstring": "168,791",
+      "subscribers": 168791,
+      "url": "https://www.reddit.com/r/csharp/",
+      "percentage": 4.18,
+      "index": 5
+    },
+    {
+      "name": "Go",
+      "subsstring": "144,458",
+      "subscribers": 144458,
+      "url": "https://www.reddit.com/r/golang/",
+      "percentage": 3.58,
+      "index": 6
+    },
+    {
+      "name": "PHP",
+      "subsstring": "136,258",
+      "subscribers": 136258,
+      "url": "https://www.reddit.com/r/PHP/",
+      "percentage": 3.38,
+      "index": 7
+    },
+    {
+      "name": "Rust",
+      "subsstring": "133,740",
+      "subscribers": 133740,
+      "url": "https://www.reddit.com/r/rust/",
+      "percentage": 3.31,
+      "index": 8
+    },
+    {
+      "name": "C",
+      "subsstring": "104,529",
+      "subscribers": 104529,
+      "url": "https://www.reddit.com/r/C_Programming/",
+      "percentage": 2.59,
+      "index": 9
+    },
+    {
+      "name": "Swift",
+      "subsstring": "79,622",
+      "subscribers": 79622,
+      "url": "https://www.reddit.com/r/swift/",
+      "percentage": 1.97,
+      "index": 10
+    },
+    {
+      "name": "Ruby",
+      "subsstring": "70,599",
+      "subscribers": 70599,
+      "url": "https://www.reddit.com/r/ruby/",
+      "percentage": 1.75,
+      "index": 11
+    },
+    {
+      "name": "Haskell",
+      "subsstring": "62,625",
+      "subscribers": 62625,
+      "url": "https://www.reddit.com/r/haskell/",
+      "percentage": 1.55,
+      "index": 12
+    },
+    {
+      "name": "TypeScript",
+      "subsstring": "62,140",
+      "subscribers": 62140,
+      "url": "https://www.reddit.com/r/typescript/",
+      "percentage": 1.54,
+      "index": 13
+    },
+    {
+      "name": "Kotlin",
+      "subsstring": "47,882",
+      "subscribers": 47882,
+      "url": "https://www.reddit.com/r/Kotlin/",
+      "percentage": 1.19,
+      "index": 14
+    },
+    {
+      "name": "Scala",
+      "subsstring": "38,032",
+      "subscribers": 38032,
+      "url": "https://www.reddit.com/r/scala/",
+      "percentage": 0.94,
+      "index": 15
+    },
+    {
+      "name": "VBA",
+      "subsstring": "37,360",
+      "subscribers": 37360,
+      "url": "https://www.reddit.com/r/vba/",
+      "percentage": 0.93,
+      "index": 16
+    },
+    {
+      "name": "Lisp",
+      "subsstring": "31,334",
+      "subscribers": 31334,
+      "url": "https://www.reddit.com/r/lisp/",
+      "percentage": 0.78,
+      "index": 17
+    },
+    {
+      "name": "Dart",
+      "subsstring": "27,183",
+      "subscribers": 27183,
+      "url": "https://www.reddit.com/r/dartlang/",
+      "percentage": 0.67,
+      "index": 18
+    },
+    {
+      "name": "Clojure",
+      "subsstring": "25,869",
+      "subscribers": 25869,
+      "url": "https://www.reddit.com/r/Clojure/",
+      "percentage": 0.64,
+      "index": 19
+    },
+    {
+      "name": "R",
+      "subsstring": "23,235",
+      "subscribers": 23235,
+      "url": "https://www.reddit.com/r/Rlanguage/",
+      "percentage": 0.58,
+      "index": 20
+    },
+    {
+      "name": "Elixir",
+      "subsstring": "19,644",
+      "subscribers": 19644,
+      "url": "https://www.reddit.com/r/elixir/",
+      "percentage": 0.49,
+      "index": 21
+    },
+    {
+      "name": "Julia",
+      "subsstring": "15,642",
+      "subscribers": 15642,
+      "url": "https://www.reddit.com/r/Julia/",
+      "percentage": 0.39,
+      "index": 22
+    },
+    {
+      "name": "Perl",
+      "subsstring": "14,537",
+      "subscribers": 14537,
+      "url": "https://www.reddit.com/r/perl/",
+      "percentage": 0.36,
+      "index": 23
+    },
+    {
+      "name": "Assembly",
+      "subsstring": "13,770",
+      "subscribers": 13770,
+      "url": "https://www.reddit.com/r/asm/",
+      "percentage": 0.34,
+      "index": 24
+    },
+    {
+      "name": "Lua",
+      "subsstring": "12,219",
+      "subscribers": 12219,
+      "url": "https://www.reddit.com/r/lua/",
+      "percentage": 0.3,
+      "index": 25
+    },
+    {
+      "name": "Elm",
+      "subsstring": "10,047",
+      "subscribers": 10047,
+      "url": "https://www.reddit.com/r/elm/",
+      "percentage": 0.25,
+      "index": 26
+    },
+    {
+      "name": "F#",
+      "subsstring": "8,516",
+      "subscribers": 8516,
+      "url": "https://www.reddit.com/r/fsharp/",
+      "percentage": 0.21,
+      "index": 27
+    },
+    {
+      "name": "Erlang",
+      "subsstring": "8,512",
+      "subscribers": 8512,
+      "url": "https://www.reddit.com/r/erlang/",
+      "percentage": 0.21,
+      "index": 28
+    },
+    {
+      "name": "OCaml",
+      "subsstring": "8,274",
+      "subscribers": 8274,
+      "url": "https://www.reddit.com/r/ocaml/",
+      "percentage": 0.2,
+      "index": 29
+    },
+    {
+      "name": "Prolog",
+      "subsstring": "7,765",
+      "subscribers": 7765,
+      "url": "https://www.reddit.com/r/prolog/",
+      "percentage": 0.19,
+      "index": 30
+    },
+    {
+      "name": "Visual Basic",
+      "subsstring": "6,803",
+      "subscribers": 6803,
+      "url": "https://www.reddit.com/r/visualbasic/",
+      "percentage": 0.17,
+      "index": 31
+    },
+    {
+      "name": "Scheme",
+      "subsstring": "6,759",
+      "subscribers": 6759,
+      "url": "https://www.reddit.com/r/scheme/",
+      "percentage": 0.17,
+      "index": 32
+    },
+    {
+      "name": "Objective C",
+      "subsstring": "6,513",
+      "subscribers": 6513,
+      "url": "https://www.reddit.com/r/ObjectiveC/",
+      "percentage": 0.16,
+      "index": 33
+    },
+    {
+      "name": "Scratch",
+      "subsstring": "6,382",
+      "subscribers": 6382,
+      "url": "https://www.reddit.com/r/scratch/",
+      "percentage": 0.16,
+      "index": 34
+    },
+    {
+      "name": "Ada",
+      "subsstring": "6,245",
+      "subscribers": 6245,
+      "url": "https://www.reddit.com/r/ada/",
+      "percentage": 0.15,
+      "index": 35
+    },
+    {
+      "name": "Wasm",
+      "subsstring": "6,235",
+      "subscribers": 6235,
+      "url": "https://www.reddit.com/r/WebAssembly/",
+      "percentage": 0.15,
+      "index": 36
+    },
+    {
+      "name": "Racket",
+      "subsstring": "5,865",
+      "subscribers": 5865,
+      "url": "https://www.reddit.com/r/Racket/",
+      "percentage": 0.15,
+      "index": 37
+    },
+    {
+      "name": "Fortran",
+      "subsstring": "5,704",
+      "subscribers": 5704,
+      "url": "https://www.reddit.com/r/fortran/",
+      "percentage": 0.14,
+      "index": 38
+    },
+    {
+      "name": "D",
+      "subsstring": "5,071",
+      "subscribers": 5071,
+      "url": "https://www.reddit.com/r/d_language/",
+      "percentage": 0.13,
+      "index": 39
+    },
+    {
+      "name": "Nim",
+      "subsstring": "4,320",
+      "subscribers": 4320,
+      "url": "https://www.reddit.com/r/nim/",
+      "percentage": 0.11,
+      "index": 40
+    },
+    {
+      "name": "Crystal",
+      "subsstring": "3,692",
+      "subscribers": 3692,
+      "url": "https://www.reddit.com/r/crystal_programming/",
+      "percentage": 0.09,
+      "index": 41
+    },
+    {
+      "name": "Solidity",
+      "subsstring": "3,110",
+      "subscribers": 3110,
+      "url": "https://www.reddit.com/r/solidity/",
+      "percentage": 0.08,
+      "index": 42
+    },
+    {
+      "name": "Zig",
+      "subsstring": "2,802",
+      "subscribers": 2802,
+      "url": "https://www.reddit.com/r/zig/",
+      "percentage": 0.07,
+      "index": 43
+    },
+    {
+      "name": "Idris",
+      "subsstring": "2,793",
+      "subscribers": 2793,
+      "url": "https://www.reddit.com/r/Idris/",
+      "percentage": 0.07,
+      "index": 44
+    },
+    {
+      "name": "Purescript",
+      "subsstring": "2,660",
+      "subscribers": 2660,
+      "url": "https://www.reddit.com/r/purescript/",
+      "percentage": 0.07,
+      "index": 45
+    },
+    {
+      "name": "Pascal",
+      "subsstring": "2,625",
+      "subscribers": 2625,
+      "url": "https://www.reddit.com/r/delphi/",
+      "percentage": 0.07,
+      "index": 46
+    },
+    {
+      "name": "Groovy",
+      "subsstring": "2,622",
+      "subscribers": 2622,
+      "url": "https://www.reddit.com/r/groovy/",
+      "percentage": 0.06,
+      "index": 47
+    },
+    {
+      "name": "Reason",
+      "subsstring": "2,595",
+      "subscribers": 2595,
+      "url": "https://www.reddit.com/r/reasonml/",
+      "percentage": 0.06,
+      "index": 48
+    },
+    {
+      "name": "CoffeeScript",
+      "subsstring": "2,360",
+      "subscribers": 2360,
+      "url": "https://www.reddit.com/r/coffeescript/",
+      "percentage": 0.06,
+      "index": 49
+    },
+    {
+      "name": "Forth",
+      "subsstring": "2,242",
+      "subscribers": 2242,
+      "url": "https://www.reddit.com/r/Forth/",
+      "percentage": 0.06,
+      "index": 50
+    },
+    {
+      "name": "COBOL",
+      "subsstring": "2,045",
+      "subscribers": 2045,
+      "url": "https://www.reddit.com/r/cobol/",
+      "percentage": 0.05,
+      "index": 51
+    },
+    {
+      "name": "Smalltalk",
+      "subsstring": "1,936",
+      "subscribers": 1936,
+      "url": "https://www.reddit.com/r/smalltalk/",
+      "percentage": 0.05,
+      "index": 52
+    },
+    {
+      "name": "AppleScript",
+      "subsstring": "1,790",
+      "subscribers": 1790,
+      "url": "https://www.reddit.com/r/applescript/",
+      "percentage": 0.04,
+      "index": 53
+    },
+    {
+      "name": "Haxe",
+      "subsstring": "1,675",
+      "subscribers": 1675,
+      "url": "https://www.reddit.com/r/haxe/",
+      "percentage": 0.04,
+      "index": 54
+    },
+    {
+      "name": "ColdFusion",
+      "subsstring": "1,308",
+      "subscribers": 1308,
+      "url": "https://www.reddit.com/r/coldfusion/",
+      "percentage": 0.03,
+      "index": 55
+    },
+    {
+      "name": "TCL",
+      "subsstring": "1,238",
+      "subscribers": 1238,
+      "url": "https://www.reddit.com/r/Tcl/",
+      "percentage": 0.03,
+      "index": 56
+    },
+    {
+      "name": "Agda",
+      "subsstring": "1,057",
+      "subscribers": 1057,
+      "url": "https://www.reddit.com/r/agda/",
+      "percentage": 0.03,
+      "index": 57
+    },
+    {
+      "name": "Standard ML",
+      "subsstring": "819",
+      "subscribers": 819,
+      "url": "https://www.reddit.com/r/sml/",
+      "percentage": 0.02,
+      "index": 58
+    },
+    {
+      "name": "Pony",
+      "subsstring": "669",
+      "subscribers": 669,
+      "url": "https://www.reddit.com/r/ponylang/",
+      "percentage": 0.02,
+      "index": 59
+    },
+    {
+      "name": "Wolfram",
+      "subsstring": "554",
+      "subscribers": 554,
+      "url": "https://www.reddit.com/r/wolframlanguage/",
+      "percentage": 0.01,
+      "index": 60
+    },
+    {
+      "name": "Vala",
+      "subsstring": "520",
+      "subscribers": 520,
+      "url": "https://www.reddit.com/r/vala/",
+      "percentage": 0.01,
+      "index": 61
+    },
+    {
+      "name": "Red",
+      "subsstring": "520",
+      "subscribers": 520,
+      "url": "https://www.reddit.com/r/redlang/",
+      "percentage": 0.01,
+      "index": 62
+    },
+    {
+      "name": "Gleam",
+      "subsstring": "311",
+      "subscribers": 311,
+      "url": "https://www.reddit.com/r/gleamlang/",
+      "percentage": 0.01,
+      "index": 63
+    },
+    {
+      "name": "Xojo",
+      "subsstring": "265",
+      "subscribers": 265,
+      "url": "https://www.reddit.com/r/xojo/",
+      "percentage": 0.01,
+      "index": 64
+    },
+    {
+      "name": "Oberon",
+      "subsstring": "256",
+      "subscribers": 256,
+      "url": "https://www.reddit.com/r/Oberon/",
+      "percentage": 0.01,
+      "index": 65
+    },
+    {
+      "name": "Hack",
+      "subsstring": "248",
+      "subscribers": 248,
+      "url": "https://www.reddit.com/r/hacklang/",
+      "percentage": 0.01,
+      "index": 66
+    },
+    {
+      "name": "Ceylon",
+      "subsstring": "180",
+      "subscribers": 180,
+      "url": "https://www.reddit.com/r/ceylon/",
+      "percentage": 0.0,
+      "index": 67
+    },
+    {
+      "name": "Fantom",
+      "subsstring": "164",
+      "subscribers": 164,
+      "url": "https://www.reddit.com/r/Fantom/",
+      "percentage": 0.0,
+      "index": 68
+    },
+    {
+      "name": "Chapel",
+      "subsstring": "67",
+      "subscribers": 67,
+      "url": "https://www.reddit.com/r/chapel/",
+      "percentage": 0.0,
+      "index": 69
+    },
+    {
+      "name": "Ballerina",
+      "subsstring": "44",
+      "subscribers": 44,
+      "url": "https://www.reddit.com/r/ballerinalang/",
+      "percentage": 0.0,
+      "index": 70
+    },
+    {
+      "name": "Concurnas",
+      "subsstring": "32",
+      "subscribers": 32,
+      "url": "https://www.reddit.com/r/Concurnas/",
+      "percentage": 0.0,
+      "index": 71
+    },
+    {
+      "name": "Opa",
+      "subsstring": "18",
+      "subscribers": 18,
+      "url": "https://www.reddit.com/r/opa/",
+      "percentage": 0.0,
+      "index": 72
+    },
+    {
+      "name": "Nemerle",
+      "subsstring": "9",
+      "subscribers": 9,
+      "url": "https://www.reddit.com/r/nemerle/",
+      "percentage": 0.0,
+      "index": 73
+    }
+  ]
+}
